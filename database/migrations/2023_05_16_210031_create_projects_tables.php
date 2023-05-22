@@ -4,11 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePagesTables extends Migration
+class CreateProjectsTables extends Migration
 {
     public function up()
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             // this will create an id, a "published" column, and soft delete and timestamps columns
             createDefaultTableFields($table);
 
@@ -20,19 +20,32 @@ class CreatePagesTables extends Migration
 
             $table->integer('position')->unsigned()->nullable();
 
+            // Custom fields
+            $table->text('year')->nullable();
+            $table->text('client')->nullable();
+            $table->text('company')->nullable();
+            // (Description)
+            $table->text('type')->nullable();
+            $table->text('role')->nullable();
+            $table->text('process')->nullable();
+            $table->text('tools')->nullable();
+
             // add those 2 columns to enable publication timeframe fields (you can use publish_start_date only if you don't need to provide the ability to specify an end date)
             // $table->timestamp('publish_start_date')->nullable();
             // $table->timestamp('publish_end_date')->nullable();
         });
 
-        Schema::create('page_slugs', function (Blueprint $table) {
-            createDefaultSlugsTableFields($table, 'page');
+        Schema::create('project_slugs', function (Blueprint $table) {
+            createDefaultSlugsTableFields($table, 'project');
         });
+
+
     }
 
     public function down()
     {
-        Schema::dropIfExists('page_slugs');
-        Schema::dropIfExists('pages');
+
+        Schema::dropIfExists('project_slugs');
+        Schema::dropIfExists('projects');
     }
 }

@@ -6,13 +6,13 @@ use A17\Twill\Repositories\Behaviors\HandleBlocks;
 use A17\Twill\Repositories\Behaviors\HandleSlugs;
 use A17\Twill\Repositories\Behaviors\HandleMedias;
 use A17\Twill\Repositories\ModuleRepository;
-use App\Models\Page;
+use App\Models\Project;
 
-class PageRepository extends ModuleRepository
+class ProjectRepository extends ModuleRepository
 {
     use HandleBlocks, HandleSlugs, HandleMedias;
 
-    public function __construct(Page $model)
+    public function __construct(Project $model)
     {
         $this->model = $model;
     }

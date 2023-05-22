@@ -3,22 +3,21 @@
 namespace App\Http\Controllers\Twill;
 
 use A17\Twill\Models\Contracts\TwillModelContract;
-use A17\Twill\Services\Forms\Fields\BlockEditor;
+use A17\Twill\Services\Forms\Fields\Medias;
 use A17\Twill\Services\Listings\Columns\Text;
 use A17\Twill\Services\Listings\TableColumns;
 use A17\Twill\Services\Forms\Fields\Input;
 use A17\Twill\Services\Forms\Form;
 use A17\Twill\Http\Controllers\Admin\ModuleController as BaseModuleController;
 
-class PageController extends BaseModuleController
+class ProjectController extends BaseModuleController
 {
-    protected $moduleName = 'pages';
+    protected $moduleName = 'projects';
     /**
      * This method can be used to enable/disable defaults. See setUpController in the docs for available options.
      */
     protected function setUpController(): void
     {
-        $this->setPermalinkBase('');
         $this->enableReorder();
     }
 
@@ -31,11 +30,43 @@ class PageController extends BaseModuleController
         $form = parent::getForm($model);
 
         $form->add(
-            Input::make()->name('description')->label('Description')
+            Medias::make()->name('cover')->label('Cover image')
         );
 
         $form->add(
-            BlockEditor::make()
+            Input::make()->name('year')->label('Year')
+        );
+
+        $form->add(
+            Input::make()->name('client')->label('Client')
+        );
+
+        $form->add(
+            Input::make()->name('company')->label('Company')
+        );
+
+        $form->add(
+            Input::make()->name('description')->label('Description')->type('textarea')
+        );
+
+        $form->add(
+            Input::make()->name('type')->label('Type')
+        );
+
+        $form->add(
+            Input::make()->name('role')->label('Role')->type('textarea')
+        );
+
+        $form->add(
+            Input::make()->name('process')->label('Process')->type('textarea')
+        );
+
+        $form->add(
+            Input::make()->name('tools')->label('Tools')->type('textarea')
+        );
+
+        $form->add(
+            Medias::make()->name('images')->label('Images')->max(6)
         );
 
         return $form;

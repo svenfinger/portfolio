@@ -9,14 +9,21 @@ use A17\Twill\Models\Behaviors\HasPosition;
 use A17\Twill\Models\Behaviors\Sortable;
 use A17\Twill\Models\Model;
 
-class Page extends Model implements Sortable
+class Project extends Model implements Sortable
 {
     use HasBlocks, HasSlug, HasMedias, HasPosition;
 
     protected $fillable = [
         'published',
         'title',
+        'year',
+        'client',
+        'company',
         'description',
+        'type',
+        'role',
+        'process',
+        'tools',
         'position',
     ];
 
