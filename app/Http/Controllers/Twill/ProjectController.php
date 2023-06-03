@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Twill;
 
 use A17\Twill\Models\Contracts\TwillModelContract;
 use A17\Twill\Services\Forms\Fields\Medias;
+use A17\Twill\Services\Forms\Fields\Wysiwyg;
 use A17\Twill\Services\Listings\Columns\Text;
 use A17\Twill\Services\Listings\TableColumns;
 use A17\Twill\Services\Forms\Fields\Input;
@@ -62,7 +63,7 @@ class ProjectController extends BaseModuleController
         );
 
         $form->add(
-            Input::make()->name('tools')->label('Tools')->type('textarea')
+            Wysiwyg::make()->name('tools')->label('Tools')
         );
 
         $form->add(

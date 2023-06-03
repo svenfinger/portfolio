@@ -31,4 +31,43 @@ class Project extends Model implements Sortable
         'title',
     ];
 
+    public $mediasParams = [
+        'cover' => [ // role name
+            'default' => [ // crop name
+                [
+                    'name' => 'default', // ratio name, same as crop name if single
+                    'ratio' => 16 / 9, // ratio as a fraction or number
+                ],
+            ],
+            'mobile' => [
+                [
+                    'name' => 'landscape', // ratio name, multiple allowed
+                    'ratio' => 16 / 9,
+                ],
+                [
+                    'name' => 'portrait', // ratio name, multiple allowed
+                    'ratio' => 3 / 4,
+                ],
+            ],
+        ],
+        'images' => [ // role name
+            'default' => [ // crop name
+                [
+                    'name' => 'default', // ratio name, same as crop name if single
+                    'ratio' => 16 / 9, // ratio as a fraction or number
+                ],
+            ],
+            'mobile' => [
+                [
+                    'name' => 'landscape', // ratio name, multiple allowed
+                    'ratio' => 16 / 9,
+                ],
+                [
+                    'name' => 'portrait', // ratio name, multiple allowed
+                    'ratio' => 3 / 4,
+                ],
+            ],
+        ]
+    ];
+
 }
