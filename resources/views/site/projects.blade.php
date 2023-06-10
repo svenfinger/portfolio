@@ -17,9 +17,5 @@
                 </a>
             @endforeach
         </div>
-        <a href="{{ route('frontend.page', 'projects') }}" class="bg-white/30 hover:bg-white/40 py-6 px-8 font-display flex justify-between text-3xl">
-            <span>More projects</span>
-            <span>→</span>
-        </a>
     </div>
 @endsection
