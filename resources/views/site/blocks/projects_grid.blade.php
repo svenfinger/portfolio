@@ -5,9 +5,9 @@
     $projects = Feature::getForBucket('home_featured_projects');
 
 @endphp
-<div class="px-12 py-32">
+<div class="px-6 py-16 sm:px-12 sm:py-32">
     <div class="text-5xl leading-tight font-display mb-12">{{ $block->input('title') }}</div>
-    <div class="grid grid-cols-2 gap-12 mb-12">
+    <div class="grid gap-6 sm:grid-cols-2 sm:gap-12 mb-12">
         @foreach($projects as $project)
             <a class="group border-t border-gray-600 flex flex-col gap-6 pt-6 decoration-from-font" href="{{ route('frontend.project', $project->slug) }}">
                 <div class="grid grid-cols-2">

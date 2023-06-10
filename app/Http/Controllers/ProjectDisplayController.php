@@ -14,7 +14,7 @@ class ProjectDisplayController extends Controller
     {
         $projects = $projectRepository->get([], ['published' => 1]);
 
-        return view('site.projects', ['items' => $projects]);
+        return view('site.projects', ['title' => 'Projects', 'description' => 'Browse my current and past projects, that I did as a product designer with development skills.', 'items' => $projects]);
     }
 
     public function show(string $slug, ProjectRepository $projectRepository): View
@@ -25,6 +25,6 @@ class ProjectDisplayController extends Controller
             abort(404);
         }
 
-        return view('site.project', ['item' => $project]);
+        return view('site.project', ['title' => $project->title, 'description' => $project->description, 'item' => $project]);
     }
 }

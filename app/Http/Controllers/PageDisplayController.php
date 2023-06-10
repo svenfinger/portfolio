@@ -17,7 +17,7 @@ class PageDisplayController extends Controller
             abort(404);
         }
 
-        return view('site.page', ['item' => $page]);
+        return view('site.page', ['title' => $page->title, 'description' => $page->description, 'item' => $page]);
     }
 
     public function home(): View
@@ -27,7 +27,7 @@ class PageDisplayController extends Controller
             $frontPage = TwillAppSettings::get('homepage.homepage.page')->first();
 
             if ($frontPage->published) {
-                return view('site.page', ['item' => $frontPage]);
+                return view('site.page', ['description' => 'Product Designer with more than 15 years of professional experience. Currently working remotely from Hamburg and creating an open platform for the printing industry at Zaikio.', 'item' => $frontPage]);
             }
         }
 

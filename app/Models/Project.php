@@ -41,12 +41,8 @@ class Project extends Model implements Sortable
             ],
             'mobile' => [
                 [
-                    'name' => 'landscape', // ratio name, multiple allowed
+                    'name' => 'default', // ratio name, multiple allowed
                     'ratio' => 16 / 9,
-                ],
-                [
-                    'name' => 'portrait', // ratio name, multiple allowed
-                    'ratio' => 3 / 4,
                 ],
             ],
         ],
@@ -59,12 +55,8 @@ class Project extends Model implements Sortable
             ],
             'mobile' => [
                 [
-                    'name' => 'landscape', // ratio name, multiple allowed
+                    'name' => 'default', // ratio name, multiple allowed
                     'ratio' => 16 / 9,
-                ],
-                [
-                    'name' => 'portrait', // ratio name, multiple allowed
-                    'ratio' => 3 / 4,
                 ],
             ],
         ]

@@ -35,7 +35,7 @@ return [
                 'mobile' => [
                     [
                         'name' => 'mobile',
-                        'ratio' => 1,
+                        'ratio' => 16 / 9,
                     ],
                 ],
             ],
