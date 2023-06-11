@@ -1,4 +1,4 @@
-<div class="px-12 py-32">
+<div class="px-6 py-16 sm:px-12 sm:py-32">
     @switch($block->input('visual_tag'))
         @case(1)
             @php($tag_classes = "text-7xl leading-normal font-display font-semibold")
