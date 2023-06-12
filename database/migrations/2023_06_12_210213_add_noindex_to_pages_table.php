@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('pages', function (Blueprint $table) {
-            $table->boolean('noindex')->default(true);
+            $table->boolean('noindex');
         });
     }
 
