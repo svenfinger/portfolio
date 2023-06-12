@@ -17,7 +17,7 @@ class PageDisplayController extends Controller
             abort(404);
         }
 
-        return view('site.page', ['title' => $page->title, 'description' => $page->description, 'item' => $page]);
+        return view('site.page', ['title' => $page->title, 'description' => $page->description, 'noindex' => $page->noindex, 'item' => $page]);
     }
 
     public function home(): View

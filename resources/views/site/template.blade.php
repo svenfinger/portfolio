@@ -8,6 +8,9 @@
     @if (isset($description))
     <meta name="description" content="{{ $description }}">
     @endif
+    @if (isset($noindex))
+    <meta name="robots" content="noindex">
+    @endif
 
     @vite('resources/css/app.css')
 

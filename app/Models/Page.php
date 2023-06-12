@@ -17,6 +17,7 @@ class Page extends Model implements Sortable
         'published',
         'title',
         'description',
+        'noindex',
         'position',
     ];
 

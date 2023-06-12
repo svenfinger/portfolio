@@ -7,6 +7,7 @@ use A17\Twill\Services\Forms\Fields\BlockEditor;
 use A17\Twill\Services\Listings\Columns\Text;
 use A17\Twill\Services\Listings\TableColumns;
 use A17\Twill\Services\Forms\Fields\Input;
+use A17\Twill\Services\Forms\Fields\Checkbox;
 use A17\Twill\Services\Forms\Form;
 use A17\Twill\Http\Controllers\Admin\ModuleController as BaseModuleController;
 
@@ -32,6 +33,10 @@ class PageController extends BaseModuleController
 
         $form->add(
             Input::make()->name('description')->label('Description')
+        );
+
+        $form->add(
+            Checkbox::make()->name('noindex')->label('No index')
         );
 
         $form->add(
