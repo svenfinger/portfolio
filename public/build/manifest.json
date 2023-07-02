@@ -1,18 +1,6 @@
 {
-  "public/assets/font/inter-medium.woff2": {
-    "file": "assets/inter-medium-ca1cadcf.woff2",
-    "src": "public/assets/font/inter-medium.woff2"
-  },
-  "public/assets/font/inter-regular.woff2": {
-    "file": "assets/inter-regular-14a34af8.woff2",
-    "src": "public/assets/font/inter-regular.woff2"
-  },
-  "public/assets/font/manrope-semibold.woff2": {
-    "file": "assets/manrope-semibold-d2e40552.woff2",
-    "src": "public/assets/font/manrope-semibold.woff2"
-  },
   "resources/css/app.css": {
-    "file": "assets/app-c526ca5f.css",
+    "file": "assets/app-b424b106.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },

@@ -6,22 +6,22 @@
 
 @endphp
 <div class="px-6 py-16 sm:px-12 sm:py-32">
-    <div class="text-5xl leading-tight font-display mb-12">{{ $block->input('title') }}</div>
+    <div class="text-5xl leading-tight font-bold tracking-tight mb-12">{{ $block->input('title') }}</div>
     <div class="grid gap-6 sm:grid-cols-2 sm:gap-12 mb-12">
         @foreach($projects as $project)
-            <a class="group border-t border-gray-600 flex flex-col gap-6 pt-6 decoration-from-font" href="{{ route('frontend.project', $project->slug) }}">
+            <a class="group border-t-2 border-white/30 border-dotted flex flex-col gap-6 pt-6 decoration-from-font" href="{{ route('frontend.project', $project->slug) }}">
                 <div class="grid grid-cols-2">
                     <div class="flex flex-col">
-                        <div class="text-xl leading-normal font-medium group-hover:underline">{{ $project->title }}</div>
+                        <div class="text-xl leading-normal font-semibold group-hover:underline">{{ $project->title }}</div>
                         <div class="text-xl leading-normal text-gray-400">{{ $project->client }}</div>
                     </div>
-                    <div class="text-xl leading-normal font-medium">{{ '@' . $project->company }} · {{ $project->year }}</div>
+                    <div class="text-xl leading-normal font-semibold">{{ '@' . $project->company }} · {{ $project->year }}</div>
                 </div>
                 <img src="{{ $project->image('cover', 'default') }}" alt="{{ $project->imageAltText('cover') }}">
             </a>
         @endforeach
     </div>
-    <a href="{{ route('frontend.page', 'projects') }}" class="bg-white/30 hover:bg-white/40 py-6 px-8 font-display flex justify-between text-3xl">
+    <a href="{{ route('frontend.page', 'projects') }}" class="bg-white/30 hover:bg-white/40 py-6 px-8 font-medium flex justify-between text-3xl">
         <span>More projects</span>
         <span>→</span>
     </a>

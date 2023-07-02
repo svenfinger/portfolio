@@ -7,13 +7,6 @@ module.exports = {
     './resources/**/*.js',
     './resources/**/*.vue',
   ],
-  theme: {
-    fontFamily: {
-      'sans': ['Inter', ...defaultTheme.fontFamily.sans],
-      'display': ['Manrope', ...defaultTheme.fontFamily.sans],
-    },
-    extend: {},
-  },
   plugins: [
     require('@tailwindcss/typography'),
   ],
