@@ -27,8 +27,8 @@
             </a>
         </div>
         <div class="flex gap-3 sm:gap-12 pt-1">
-            <a href="{{ route('frontend.page', 'projects') }}" class="font-medium hover:underline decoration-from-font">Projects</a>
-            <a href="{{ route('frontend.page', 'contact') }}" class="font-medium hover:underline decoration-from-font">Contact</a>
+            <a href="{{ route('frontend.page', 'projects') }}" class="font-medium {{ Request::is('projects') ? "underline decoration-white" : "hover:underline hover:decoration-white/50" }}">Projects</a>
+            <a href="{{ route('frontend.page', 'contact') }}" class="font-medium {{ Request::is('contact') ? "underline decoration-white" : "hover:underline hover:decoration-white/50" }}">Contact</a>
         </div>
     </div>
     @yield('content')
@@ -36,8 +36,8 @@
         <div class="grid gap-6 sm:gap-12 grid-cols-2">
             <div>© {{ date('Y') }} Sven&nbsp;Finger</div>
             <div class="flex gap-3 sm:gap-12">
-                <a href="{{ route('frontend.page', 'privacy') }}" class="font-medium hover:underline decoration-from-font">Privacy</a>
-                <a href="{{ route('frontend.page', 'imprint') }}" class="font-medium hover:underline decoration-from-font">Imprint</a>
+                <a href="{{ route('frontend.page', 'privacy') }}" class="font-medium {{ Request::is('privacy') ? "underline decoration-white" : "hover:underline hover:decoration-white/50" }}">Privacy</a>
+                <a href="{{ route('frontend.page', 'imprint') }}" class="font-medium {{ Request::is('imprint') ? "underline decoration-white" : "hover:underline hover:decoration-white/50" }}">Imprint</a>
             </div>
         </div>
     </div>
