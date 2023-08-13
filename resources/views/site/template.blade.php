@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="bg-black text-white antialiased">
 <head>
     <title>{{ (isset($title)) ? $title . " | " : "" }}Sven Finger</title>
 
@@ -19,7 +19,7 @@
     <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ asset('manifest.webmanifest') }}" crossorigin="use-credentials">
 </head>
-<body class="bg-black text-white antialiased">
+<body>
     <div class="m-6 sm:m-12 pt-6 sm:pt-12 grid grid-cols-2 items-start border-t-2 border-white/30 border-dotted gap-6 sm:gap-12">
         <div>
             <a class="inline-block" href="/">
@@ -27,8 +27,8 @@
             </a>
         </div>
         <div class="flex gap-3 sm:gap-12 pt-1">
-            <a href="{{ route('frontend.page', 'projects') }}" class="font-medium {{ Request::is('projects') ? "underline decoration-white" : "hover:underline hover:decoration-white/50" }}">Projects</a>
-            <a href="{{ route('frontend.page', 'contact') }}" class="font-medium {{ Request::is('contact') ? "underline decoration-white" : "hover:underline hover:decoration-white/50" }}">Contact</a>
+            <a href="{{ route('frontend.page', 'projects') }}" class="font-medium decoration-1 underline-offset-2 {{ Request::is('projects') || Request::is('projects/*') ? "underline decoration-white" : "hover:underline hover:decoration-white/50" }}">Projects</a>
+            <a href="{{ route('frontend.page', 'contact') }}" class="font-medium decoration-1 underline-offset-2 {{ Request::is('contact') ? "underline decoration-white" : "hover:underline hover:decoration-white/50" }}">Contact</a>
         </div>
     </div>
     @yield('content')
@@ -36,8 +36,8 @@
         <div class="grid gap-6 sm:gap-12 grid-cols-2">
             <div>© {{ date('Y') }} Sven&nbsp;Finger</div>
             <div class="flex gap-3 sm:gap-12">
-                <a href="{{ route('frontend.page', 'privacy') }}" class="font-medium {{ Request::is('privacy') ? "underline decoration-white" : "hover:underline hover:decoration-white/50" }}">Privacy</a>
-                <a href="{{ route('frontend.page', 'imprint') }}" class="font-medium {{ Request::is('imprint') ? "underline decoration-white" : "hover:underline hover:decoration-white/50" }}">Imprint</a>
+                <a href="{{ route('frontend.page', 'privacy') }}" class="font-medium decoration-1 underline-offset-2 {{ Request::is('privacy') ? "underline decoration-white" : "hover:underline hover:decoration-white/50" }}">Privacy</a>
+                <a href="{{ route('frontend.page', 'imprint') }}" class="font-medium decoration-1 underline-offset-2 {{ Request::is('imprint') ? "underline decoration-white" : "hover:underline hover:decoration-white/50" }}">Imprint</a>
             </div>
         </div>
     </div>

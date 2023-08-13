@@ -9,7 +9,7 @@
     <div class="text-5xl leading-tight font-bold tracking-tight mb-12">{{ $block->input('title') }}</div>
     <div class="grid gap-6 sm:grid-cols-2 sm:gap-12 mb-12">
         @foreach($projects as $project)
-            <a class="group border-t-2 border-white/30 border-dotted flex flex-col gap-6 pt-6 decoration-from-font" href="{{ route('frontend.project', $project->slug) }}">
+            <a class="group border-t-2 border-white/30 border-dotted flex flex-col gap-6 pt-6 decoration-1 underline-offset-2" href="{{ route('frontend.project', $project->slug) }}">
                 <div class="grid grid-cols-2">
                     <div class="flex flex-col">
                         <div class="text-xl leading-normal font-semibold group-hover:underline">{{ $project->title }}</div>
