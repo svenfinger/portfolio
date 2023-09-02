@@ -12,12 +12,12 @@
             <a class="group border-t-2 border-white/30 border-dotted flex flex-col gap-6 pt-6 decoration-1 underline-offset-2" href="{{ route('frontend.project', $project->slug) }}">
                 <div class="grid grid-cols-2">
                     <div class="flex flex-col">
-                        <div class="text-xl leading-normal font-semibold group-hover:underline">{{ $project->title }}</div>
+                        <div class="text-xl leading-normal font-semibold group-hover:underline group-hover:decoration-1 group-hover:decoration-white/50">{{ $project->title }}</div>
                         <div class="text-xl leading-normal text-gray-400">{{ $project->client }}</div>
                     </div>
                     <div class="text-xl leading-normal font-semibold">{{ '@' . $project->company }} · {{ $project->year }}</div>
                 </div>
-                <img src="{{ $project->image('cover', 'default') }}" alt="{{ $project->imageAltText('cover') }}">
+                <img src="{{ $project->image('cover', 'default') }}" alt="{{ $project->imageAltText('cover') }}" class="group-hover:brightness-110">
             </a>
         @endforeach
     </div>

@@ -41,16 +41,16 @@
             <div class="flex flex-col gap-8">
                 <img src="{{ $item->image('cover', 'default') }}" alt="{{ $item->imageAltText('cover') }}">
                 @foreach ($item->images('images', 'default') as $index => $image)
-                    @if ($index < 2)
+                    @if ($index <= 1)
                         <img src="{{ $image }}" loading="eager">
                     @endif
                 @endforeach
             </div>
         </div>
-        @if (count($item->images('images', 'default')) > 3)
+        @if (count($item->images('images', 'default')) > 2)
             <div class="flex flex-col gap-8 mt-8">
                 @foreach ($item->images('images', 'default') as $index => $image)
-                    @if ($index >= 3)
+                    @if ($index > 1)
                         <img src="{{ $image }}" loading="eager">
                     @endif
                 @endforeach
