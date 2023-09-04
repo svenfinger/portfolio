@@ -24,6 +24,8 @@
     <meta property="twitter:description" content="{{ (isset($description)) ? $description : "" }}">
     <meta property="twitter:image" content="{{ asset('assets/img/share.png') }}">
 
+    <script src="https://cdn.usefathom.com/script.js" data-site="APTCWGJK" defer></script>
+
     @vite('resources/css/app.css')
 
     <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
