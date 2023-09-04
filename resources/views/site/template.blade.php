@@ -12,6 +12,18 @@
     <meta name="robots" content="noindex">
     @endif
 
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="{{ (isset($title)) ? $title . " | " : "" }}Sven Finger">
+    <meta property="og:description" content="{{ (isset($description)) ? $description : "" }}">
+    <meta property="og:image" content="{{ asset('assets/img/share.png') }}">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="{{ (isset($title)) ? $title . " | " : "" }}Sven Finger">
+    <meta property="twitter:description" content="{{ (isset($description)) ? $description : "" }}">
+    <meta property="twitter:image" content="{{ asset('assets/img/share.png') }}">
+
     @vite('resources/css/app.css')
 
     <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
