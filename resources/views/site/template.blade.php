@@ -16,13 +16,13 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="{{ (isset($title)) ? $title . " | " : "" }}Sven Finger">
     <meta property="og:description" content="{{ (isset($description)) ? $description : "" }}">
-    <meta property="og:image" content="{{ asset('assets/img/share.png') }}">
+    <meta property="og:image" content="{{ ($item->hasImage('cover')) ? $item->image('cover', 'default') : asset('assets/img/share.png') }}">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
     <meta property="twitter:title" content="{{ (isset($title)) ? $title . " | " : "" }}Sven Finger">
     <meta property="twitter:description" content="{{ (isset($description)) ? $description : "" }}">
-    <meta property="twitter:image" content="{{ asset('assets/img/share.png') }}">
+    <meta property="twitter:image" content="{{ ($item->hasImage('cover')) ? $item->image('cover', 'default') : asset('assets/img/share.png') }}">
 
     <script src="https://cdn.usefathom.com/script.js" data-site="APTCWGJK" defer></script>
 
