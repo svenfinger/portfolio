@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="px-6 py-16 sm:px-12 sm:py-32">
-        <div class="text-6xl leading-tight font-bold tracking-tight mb-32">Projects</div>
+        <div class="text-4xl md:text-6xl leading-tight md:leading-tight font-bold tracking-tight max-w-screen-lg mb-32">Projects</div>
         <div class="grid gap-6 sm:grid-cols-2 sm:gap-12 mb-12">
             @foreach($items as $project)
                 <a class="group border-t-2 border-white/30 border-dotted flex flex-col gap-6 pt-6 decoration-1 underline-offset-2" href="{{ route('frontend.project', $project->slug) }}">

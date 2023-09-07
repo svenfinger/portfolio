@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="px-6 sm:px-12 py-16 sm:py-32">
-        <h1 class="text-6xl leading-tight font-bold tracking-tight">{{ $item->title }}</h1>
+        <h1 class="text-4xl md:text-6xl leading-tight md:leading-tight font-bold tracking-tight max-w-screen-lg">{{ $item->title }}</h1>
     </div>
     <div class="px-6 sm:px-12 pb-16 sm:pb-32">
         <div class="grid gap-12 xl:grid-cols-2">
