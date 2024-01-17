@@ -1,4 +1,8 @@
-<img src="https://svenfinger.digital/assets/img/logo-inverted.svg" width="120" style="display:block;">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://svenfinger.digital/assets/img/logo.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://svenfinger.digital/assets/img/logo-inverted.svg">
+  <img alt="Sven Finger Logo" src="https://svenfinger.digital/assets/img/logo.svg" width="120" height="48" style="max-width: 100%;">
+</picture>
 
 # About
 
