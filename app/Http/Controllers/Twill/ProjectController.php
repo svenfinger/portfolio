@@ -35,6 +35,10 @@ class ProjectController extends BaseModuleController
         );
 
         $form->add(
+            Medias::make()->name('share')->label('Share image')
+        );
+
+        $form->add(
             Input::make()->name('year')->label('Year')
         );
 

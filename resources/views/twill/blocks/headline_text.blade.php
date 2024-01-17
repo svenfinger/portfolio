@@ -1,6 +1,36 @@
-@twillBlockTitle('Text')
+@twillBlockTitle('Headline + Text')
 @twillBlockIcon('text')
-@twillBlockGroup('text')
+@twillBlockGroup('app')
+
+<x-twill::input
+    name="title"
+    label="Title"
+/>
+
+<x-twill::select
+    name="size"
+    label="Size"
+    :required="true"
+    :default="1"
+    :options="[
+        [
+            'value' => 1,
+            'label' => 'h1'
+        ],
+        [
+            'value' => 2,
+            'label' => 'h2'
+        ],
+        [
+            'value' => 3,
+            'label' => 'h3'
+        ],
+        [
+            'value' => 4,
+            'label' => 'h4'
+        ]
+    ]"
+/>
 
 <x-twill::select
     name="layout"

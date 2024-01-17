@@ -26,16 +26,9 @@ return [
         'use_twill_blocks' => [],
         'crops' => [
             'image' => [
-                'desktop' => [
+                'default' => [
                     [
-                        'name' => 'desktop',
-                        'ratio' => 16 / 9,
-                    ],
-                ],
-                'mobile' => [
-                    [
-                        'name' => 'mobile',
-                        'ratio' => 16 / 9,
+                        'name' => 'default',
                     ],
                 ],
             ],

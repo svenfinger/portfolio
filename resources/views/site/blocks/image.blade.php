@@ -1,3 +1,3 @@
 <div>
-    <img src="{{ $block->image('image', 'desktop') }}" />
+    <img src="{{ $block->image('image', 'default') }}" />
 </div>

@@ -1,4 +1,4 @@
-@twillBlockTitle('Headline + Text')
+@twillBlockTitle('Page Header')
 @twillBlockIcon('text')
 @twillBlockGroup('app')
 
@@ -8,46 +8,18 @@
 />
 
 <x-twill::select
-    name="visual_tag"
-    label="Visual Tag"
+    name="layout"
+    label="Layout"
     :required="true"
     :default="1"
     :options="[
         [
             'value' => 1,
-            'label' => 'h1'
-        ],
-        [
-            'value' => 2,
-            'label' => 'h2'
-        ],
-        [
-            'value' => 3,
-            'label' => 'h3'
-        ]
-    ]"
-/>
-
-<x-twill::select
-    name="tag"
-    label="Tag"
-    :default="0"
-    :options="[
-        [
-            'value' => 0,
             'label' => 'Default'
         ],
         [
-            'value' => 1,
-            'label' => 'h1'
-        ],
-        [
             'value' => 2,
-            'label' => 'h2'
-        ],
-        [
-            'value' => 3,
-            'label' => 'h3'
+            'label' => 'Narrow'
         ]
     ]"
 />

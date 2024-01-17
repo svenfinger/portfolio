@@ -1,6 +1,6 @@
-@twillBlockTitle('Text')
-@twillBlockIcon('text')
-@twillBlockGroup('text')
+@twillBlockTitle('Section List')
+@twillBlockIcon('text-2col')
+@twillBlockGroup('app')
 
 <x-twill::select
     name="layout"
@@ -19,6 +19,11 @@
     ]"
 />
 
+<x-twill::input
+    name="title"
+    label="Title"
+/>
+
 <x-twill::wysiwyg
     name="text"
     label="Text"
@@ -34,4 +39,8 @@
         'clean'
     ]"
     :edit-source="true"
+/>
+
+<x-twill::repeater
+    type="section_list_item"
 />

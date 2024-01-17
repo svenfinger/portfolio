@@ -1,4 +1,4 @@
-@twillBlockTitle('Description List')
+@twillBlockTitle('List')
 @twillBlockIcon('text-2col')
 @twillBlockGroup('app')
 
@@ -19,6 +19,11 @@
     ]"
 />
 
+<x-twill::input
+    name="title"
+    label="Title"
+/>
+
 <x-twill::repeater
-    type="description_list_item"
+    type="list_item"
 />

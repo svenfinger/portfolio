@@ -1,11 +1,23 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-3013f842.css",
+    "file": "assets/app-1739e09b.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
+  "resources/font/castoro-regular.woff": {
+    "file": "assets/castoro-regular-d785f84c.woff",
+    "src": "resources/font/castoro-regular.woff"
+  },
+  "resources/font/figtree-regular.woff": {
+    "file": "assets/figtree-regular-9244c835.woff",
+    "src": "resources/font/figtree-regular.woff"
+  },
+  "resources/font/figtree-semibold.woff": {
+    "file": "assets/figtree-semibold-de75a980.woff",
+    "src": "resources/font/figtree-semibold.woff"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-0d91dc04.js",
+    "file": "assets/app-57265c7f.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

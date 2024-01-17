@@ -1,13 +1,22 @@
-# Portfolio
-This is my portfolio website. It uses [Twill](https://twillcms.com/), which is a CMS package for [Laravel](https://laravel.com/).
+<img src="https://svenfinger.digital/assets/img/logo-inverted.svg" width="120" style="display:block;">
 
-## Contribution
+# About
+
+This is my portfolio website. It uses [Twill](https://twillcms.com/), which is a CMS package for [Laravel](https://laravel.com/). Check it out at [svenfinger.digital](https://svenfinger.digital/).
+
+## Installation
 1. Install dependencies: `composer install && npm install`
-2. Generate Laravel Keys: `php artisan key:generate`
-3. Create the `.env` file with database credentials
-4. Setup the database: `php artisan migrate` 
-5. Install and start any webserver (e.g. [Laravel Valet](https://github.com/laravel/valet))
-6. Optional: Use the domain [svenfinger.test](https://svenfinger.test) with SSL on the project path
-7. Run [Vite](https://vitejs.dev/) with `vite dev`
-8. After all changes are done, pre-build the assets for deployment: `vite build`
-9. Push the changes to GitHub and deploy
+2. Populate the `.env` file with details such as database credentials
+3. Make sure an application key is set, otherwise create one: `php artisan key:generate`
+4. Setup the database: `php artisan migrate`
+
+### Development
+If you are using macOS, I can recommend to use [Laravel Valet](https://github.com/laravel/valet) with [Vite](https://vitejs.dev/) via `vite dev` to preview changes to the portfolio locally with ease.
+
+## License
+
+Unauthorized copying, modification, distribution, and use of this software,
+either in source or binary form, without express permission of the copyright
+holder, is strictly prohibited.
+
+@ 2023-2024 Sven Finger. All rights reserved.

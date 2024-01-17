@@ -1,6 +1,6 @@
-@twillBlockTitle('Text')
-@twillBlockIcon('text')
-@twillBlockGroup('text')
+@twillBlockTitle('Intro')
+@twillBlockIcon('image')
+@twillBlockGroup('app')
 
 <x-twill::select
     name="layout"
@@ -17,6 +17,11 @@
             'label' => 'Narrow'
         ]
     ]"
+/>
+
+<x-twill::medias
+    name="image"
+    label="Image"
 />
 
 <x-twill::wysiwyg
