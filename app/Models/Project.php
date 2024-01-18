@@ -25,6 +25,10 @@ class Project extends Model implements Sortable
         'process',
         'tools',
         'position',
+        'link_primary',
+        'link_primary_label',
+        'link_secondary',
+        'link_secondary_label'
     ];
 
     public $slugAttributes = [

@@ -71,7 +71,23 @@ class ProjectController extends BaseModuleController
         );
 
         $form->add(
-            Medias::make()->name('images')->label('Images')->max(6)
+            Medias::make()->name('images')->label('Images')->max(10)
+        );
+
+        $form->add(
+            Input::make()->name('link_primary')->label('Primary Link')
+        );
+
+        $form->add(
+            Input::make()->name('link_primary_label')->label('Primary link label')
+        );
+
+        $form->add(
+            Input::make()->name('link_secondary')->label('Secondary Link')
+        );
+
+        $form->add(
+            Input::make()->name('link_secondary_label')->label('Secondary link label')
         );
 
         return $form;
