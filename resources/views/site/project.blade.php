@@ -62,10 +62,10 @@
             @endif
             <div class="grid sm:grid-cols-2 gap-4">
                 @if ($item->link_primary)
-                    <x-button type="primary" size="large" href="{{ $item->link_primary }}">{{ $item->link_primary_label }}</x-button>
+                    <x-button type="primary" size="large" href="{{ $item->link_primary }}" target="_blank">{{ $item->link_primary_label }}</x-button>
                 @endif
                 @if ($item->link_secondary)
-                    <x-button type="secondary" size="large" href="{{ $item->link_secondary }}">{{ $item->link_secondary_label }}</x-button>
+                    <x-button type="secondary" size="large" href="{{ $item->link_secondary }}" target="_blank">{{ $item->link_secondary_label }}</x-button>
                 @endif
             </div>
         </x-section>
