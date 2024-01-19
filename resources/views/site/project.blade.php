@@ -43,7 +43,7 @@
         </div>
     </x-section>
     <div class="px-6 sm:px-12">
-        <div class="flex flex-col gap-12 pt-24">
+        <div class="flex flex-col gap-12 py-24">
             <div class="flex flex-col gap-8">
                 @foreach ($item->images('images', 'default') as $index => $image)
                         <img src="{{ $image }}" loading="eager">
@@ -52,7 +52,7 @@
         </div>
     </div>
     @if ($item->link_primary || $item->link_secondary)
-        <x-section layout="2">
+        <x-section layout="2" default_class="px-6 py-16 sm:pb-12 sm:pb-32">
             @if ($item->link_primary && $item->link_secondary)
                 <x-headline size="2" class="mb-3">Project links</x-headline>
                 <x-prose class="mb-12">Explore more from the project by visiting these links.</x-prose>
