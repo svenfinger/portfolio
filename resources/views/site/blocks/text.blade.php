@@ -1,11 +1,3 @@
-<div class="px-6 py-16 sm:px-12 sm:py-32">
-    @if ($block->input('layout') == 2)
-    <div class="grid grid-cols-1 sm:grid-cols-12 gap-12">
-        <div class="sm:col-start-3 sm:col-span-8">
-    @endif
-        <x-prose>{!! $block->input('text') !!}</x-prose>
-    @if ($block->input('layout') == 2)
-        </div>
-    </div>
-    @endif
-</div>
+<x-section layout="{{ $block->input('layout') }}">
+    <x-prose>{!! $block->input('text') !!}</x-prose>
+</x-section>
