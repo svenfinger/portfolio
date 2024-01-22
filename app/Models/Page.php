@@ -25,4 +25,7 @@ class Page extends Model implements Sortable
         'title',
     ];
 
+    public function next($page){
+        return Page::where('position', '>', $page->position)->where('published', 1)->orderBy('position', 'asc')->first();
+    }
 }

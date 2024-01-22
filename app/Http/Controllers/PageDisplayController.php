@@ -17,7 +17,7 @@ class PageDisplayController extends Controller
             abort(404);
         }
 
-        return view('site.page', ['title' => $page->title, 'description' => $page->description, 'noindex' => $page->noindex, 'item' => $page]);
+        return view('site.page', ['title' => $page->title, 'description' => $page->description, 'noindex' => $page->noindex, 'item' => $page, 'item_next' => $pageRepository->next($page)]);
     }
 
     public function home(): View
@@ -27,7 +27,7 @@ class PageDisplayController extends Controller
             $frontPage = TwillAppSettings::get('homepage.homepage.page')->first();
 
             if ($frontPage->published) {
-                return view('site.page', ['description' => 'Product Designer with more than 15 years of professional experience. Currently working remotely from Hamburg and creating an open platform for the printing industry at Zaikio.', 'item' => $frontPage]);
+                return view('site.page', ['description' => 'Product Designer with more than 15 years of professional experience. Currently working remotely from Hamburg and creating an open platform for the printing industry at Zaikio.', 'item' => $frontPage, 'is_frontpage' => true]);
             }
         }
 

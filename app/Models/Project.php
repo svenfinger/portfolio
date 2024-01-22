@@ -62,4 +62,7 @@ class Project extends Model implements Sortable
         ]
     ];
 
+    public function next($project){
+        return Project::where('position', '>', $project->position)->where('published', 1)->orderBy('position', 'asc')->first();
+    }
 }

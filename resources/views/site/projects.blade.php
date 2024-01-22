@@ -31,4 +31,5 @@
             @endforeach
         </div>
     </div>
+    <x-page_navigation page="projects" />
 @endsection

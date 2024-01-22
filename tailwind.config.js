@@ -16,6 +16,19 @@ module.exports = {
     extend: {
       colors: {
         'gray': colors.neutral,
+        'blue': {
+          50: '#F5F6FF',
+          100: '#E5E9FF',
+          200: '#D1D7FF',
+          300: '#B8C1FF',
+          400: '#8F9EFF',
+          500: '#667AFF',
+          600: '#3853FF',
+          700: '#0022FF',
+          800: '#001CD1',
+          900: '#0017AA',
+          950: '#000E6B',
+        },
       },
       screens: {
         '3xl': '1920px',

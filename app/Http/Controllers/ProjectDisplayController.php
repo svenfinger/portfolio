@@ -25,6 +25,6 @@ class ProjectDisplayController extends Controller
             abort(404);
         }
 
-        return view('site.project', ['title' => $project->title, 'description' => $project->description, 'item' => $project]);
+        return view('site.project', ['title' => $project->title, 'description' => $project->description, 'item' => $project, 'item_next' => $projectRepository->next($project)]);
     }
 }
