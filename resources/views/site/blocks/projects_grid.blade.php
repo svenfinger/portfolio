@@ -15,7 +15,7 @@
                         {{ $project->title }}
                         @php
                             $createdDate = new DateTime($project->created_at);
-                            $thresholdDate = new DateTime("first day of 6 months ago");
+                            $thresholdDate = new DateTime("first day of 2 months ago");
                             $new = false;
 
                             if ($createdDate > $thresholdDate) {
