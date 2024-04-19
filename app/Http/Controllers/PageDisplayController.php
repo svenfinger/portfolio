@@ -27,7 +27,7 @@ class PageDisplayController extends Controller
             $frontPage = TwillAppSettings::get('homepage.homepage.page')->first();
 
             if ($frontPage->published) {
-                return view('site.page', ['description' => 'Product Designer with more than 15 years of professional experience. Currently working remotely from Hamburg and creating an open platform for the printing industry at Zaikio.', 'item' => $frontPage, 'is_frontpage' => true]);
+                return view('site.page', ['description' => 'Product Designer with more than 15 years of professional experience. Currently working remotely from Hamburg and creating an employee app changing desk-less work.', 'item' => $frontPage, 'is_frontpage' => true]);
             }
         }
 
