@@ -12,7 +12,7 @@ This is my portfolio website. It uses [Twill](https://twillcms.com/), which is a
 1. Install dependencies: `composer install && npm install`
 2. Populate the `.env` file with details such as database credentials
 3. Make sure an application key is set, otherwise create one: `php artisan key:generate`
-4. Setup the database: `php artisan migrate`
+4. Set up the database: `php artisan migrate`
 
 ### Development
 If you are using macOS, I can recommend to use [Laravel Valet](https://github.com/laravel/valet) with [Vite](https://vitejs.dev/) via `vite dev` to preview changes to the portfolio locally with ease.
@@ -23,4 +23,4 @@ Unauthorized copying, modification, distribution, and use of this software,
 either in source or binary form, without express permission of the copyright
 holder, is strictly prohibited.
 
-@ 2023-2024 Sven Finger. All rights reserved.
+© 2023-2024 Sven Finger. All rights reserved.
