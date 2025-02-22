@@ -12,6 +12,6 @@
     ][$size];
 @endphp
 
-<a {{ $attributes->merge(['class' => "inline-flex items-center justify-center text-center rounded focus:outline outline-1 outline-offset-2 outline-blue-500 $type $size"]) }}>
+<a {{ $attributes->merge(['class' => "inline-flex items-center justify-center text-center rounded focus:outline-1 outline-offset-2 outline-blue-500 $type $size"]) }}>
     {{ $slot }}
 </a>

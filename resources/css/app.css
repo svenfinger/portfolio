@@ -1,6 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@source "../views";
+@theme {
+    --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-serif: "Castoro", ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --breakpoint-3xl: 120rem;
+}
 
 @font-face {
     font-family: 'Figtree';

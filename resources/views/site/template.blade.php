@@ -31,8 +31,6 @@
     <link rel="icon" href="{{ asset('icon.svg') }}" type="image/svg+xml">
     <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ asset('manifest.webmanifest') }}" crossorigin="use-credentials">
-
-    <script src="https://cdn.usefathom.com/script.js" data-site="WUIOMJDW" defer></script>
 </head>
 <body>
     <div class="bg-black max-w-screen-3xl min-h-screen m-auto">
