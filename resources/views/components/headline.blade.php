@@ -1,9 +1,9 @@
-@props(['size' => 1])
-@php($default_classes = "leading-tight md:leading-tight font-serif ")
+@props(['size' => 1, 'class' => ''])
+@php($default_classes = "leading-tight md:leading-tight font-display $class")
 
 @switch($size)
     @case(1)
-        <h1 {{ $attributes->merge(['class' => "text-5xl md:text-6xl $default_classes"]) }}>
+        <h1 {{ $attributes->merge(['class' => "text-5xl md:text-6xl font-semibold tracking-tight $default_classes"]) }}>
             {{ $slot }}
         </h1>
         @break

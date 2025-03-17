@@ -8,12 +8,12 @@ return [
         'homepage' => [
             'name' => 'Home',
             'buckets' => [
-                'home_featured_projects' => [
-                    'name' => 'Home Featured Projects',
+                'home_featured_work' => [
+                    'name' => 'Home Featured Work',
                     'bucketables' => [
                         [
-                            'module' => 'project',
-                            'name' => 'Projects',
+                            'module' => 'work',
+                            'name' => 'Work',
                             'scopes' => ['published' => true],
                         ],
                     ],
@@ -34,4 +34,7 @@ return [
             ],
         ],
     ],
+    'media_library' => [
+        'allowed_extensions' => ['jpg', 'png', 'gif', 'svg', 'mp4', 'mov', 'webm'],
+    ]
 ];

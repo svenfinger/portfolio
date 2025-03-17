@@ -1,24 +1,23 @@
 @props(['page'])
 
-@if ($page == 'frontpage')
-    <x-section default_class="px-6 py-6 sm:px-12 sm:py-12 border-t border-white/10">
-        <a href="{{ route('frontend.page', 'projects') }}" class="group">
-            <div class="text-lg leading-normal opacity-50 mb-2 group-hover:opacity-80">Next page</div>
-            <x-headline size="2" class="opacity-80 group-hover:opacity-100">Projects</x-headline>
-        </a>
-    </x-section>
-@elseif ($page == 'projects')
-    <x-section default_class="px-6 py-6 sm:px-12 sm:py-12 border-t border-white/10">
-        <a href="{{ route('frontend.page', 'about') }}" class="group">
-            <div class="text-lg leading-normal opacity-50 mb-2 group-hover:opacity-80">Next page</div>
-            <x-headline size="2" class="opacity-80 group-hover:opacity-100">About</x-headline>
-        </a>
-    </x-section>
-@elseif ($page && !$page->noindex)
-    <x-section default_class="px-6 py-6 sm:px-12 sm:py-12 border-t border-white/10">
-        <a href="{{ route('frontend.page', $page->slug) }}" class="group">
-            <div class="text-lg leading-normal opacity-50 mb-2 group-hover:opacity-80">Next page</div>
-            <x-headline size="2" class="opacity-80 group-hover:opacity-100">{{ $page->title }}</x-headline>
-        </a>
+@if($page === 'frontpage' || $page === 'work' || (is_object($page) && !$page->noindex))
+    <x-section class="border-t border-gray-200" space_top="medium" space_bottom="medium">
+        <x-headline size="1">Up next</x-headline>
+        @switch($page)
+            @case('frontpage')
+                <a href="{{ route('frontend.page', 'work') }}" class="text-gray-600 hover:text-blue-600 duration-200 ease-in-out">
+                    <x-headline size="1" class="inline-block">Work</x-headline>
+                </a>
+                @break
+            @case('work')
+                <a href="{{ route('frontend.page', 'about') }}" class="text-gray-600 hover:text-blue-600 duration-200 ease-in-out">
+                    <x-headline size="1" class="inline-block">About</x-headline>
+                </a>
+                @break
+            @default
+                <a href="{{ route('frontend.page', $page->slug) }}" class="text-gray-600 hover:text-blue-600 duration-200 ease-in-out">
+                    <x-headline size="1" class="inline-block">{{ $page->title }}</x-headline>
+                </a>
+        @endswitch
     </x-section>
 @endif

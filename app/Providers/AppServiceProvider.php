@@ -28,13 +28,13 @@ class AppServiceProvider extends ServiceProvider
             NavigationLink::make()->forModule('pages')
         );
         TwillNavigation::addLink(
-            NavigationLink::make()->forModule('projects')
+            NavigationLink::make()->forModule('work')
         );
         TwillAppSettings::registerSettingsGroup(
             SettingsGroup::make()->name('homepage')->label('Homepage')
         );
         Relation::morphMap([
-            'project' => 'App\Models\Project',
+            'work' => 'App\Models\Work',
         ]);
         TwillNavigation::addLink(
             NavigationLink::make()->forRoute('twill.featured.homepage')->title('Featured'),

@@ -1,7 +1,9 @@
 @extends('site.template')
 
 @section('content')
-    {!! $item->renderBlocks() !!}
+    <div>
+        {!! $item->renderBlocks() !!}
+    </div>
 
     {{-- Page navigation --}}
     @if (isset($is_frontpage))

@@ -1,6 +1,21 @@
 @extends('site.template')
 
+@php
+    $is_work = true;
+@endphp
+
 @section('content')
+    <div class="relative">
+        <img src="{{ $item->image('feature', 'default') }}" alt="{{ $item->imageAltText('feature') }}" class="relative z-0">
+        <div class="gradient-blur-t absolute top-0 h-40 w-full z-10">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <x-section default_class="px-6 sm:px-12 pt-20 sm:pt-40 pb-8 sm:pb-20 border-b border-white/10" layout="2">
         <a href="{{ route('frontend.page', 'projects') }}" class="text-xl leading-normal mt-6 opacity-50 hover:opacity-80">Projects &nbsp;⁄</a>
         <x-headline size="1">{{ $item->title }}</x-headline>
@@ -61,14 +76,12 @@
                 <x-prose class="mb-12">Explore more from the project by visiting this link.</x-prose>
             @endif
             <div class="grid sm:grid-cols-2 gap-4">
-                @if ($item->link_primary)
-                    <x-button type="primary" size="large" href="{{ $item->link_primary }}" target="_blank">{{ $item->link_primary_label }}</x-button>
-                @endif
+                F
                 @if ($item->link_secondary)
                     <x-button type="secondary" size="large" href="{{ $item->link_secondary }}" target="_blank">{{ $item->link_secondary_label }}</x-button>
                 @endif
             </div>
         </x-section>
     @endif
-    <x-project_navigation :project="$item_next" />
+    <x-project_navigation :work="$item_next" />
 @endsection
