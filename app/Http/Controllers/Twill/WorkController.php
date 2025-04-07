@@ -67,11 +67,21 @@ class WorkController extends BaseModuleController
     {
         $form = Form::make();
 
+        $options = ['bold',
+            'italic',
+            ['list' => 'bullet'],
+            ['list' => 'ordered'],
+            [ 'script' => 'super' ],
+            [ 'script' => 'sub' ],
+            'link',
+            'clean'
+        ];
+
         $form->addFieldset(
             Fieldset::make()->title('Meta')->id('side_meta')->fields([
                 Input::make()->name('year')->label('Year'),
                 Input::make()->name('company')->label('Company'),
-                Input::make()->name('description')->label('Description')->type('textarea')
+                Wysiwyg::make()->name('description')->label('Description')->toolbarOptions($options),
             ])
         );
 

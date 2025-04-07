@@ -4,11 +4,13 @@
     <div>
         {!! $item->renderBlocks() !!}
     </div>
+@endsection
 
+@section('page_navigation')
     {{-- Page navigation --}}
     @if (isset($is_frontpage))
-        <x-page_navigation page="frontpage" />
+        <x-navigation_page page="frontpage" />
     @else
-        <x-page_navigation :page="$item_next" />
+        <x-navigation_page :page="$item_next" />
     @endif
 @endsection

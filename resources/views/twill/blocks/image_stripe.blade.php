@@ -1,5 +1,5 @@
-@twillBlockTitle('Image stripe')
-@twillBlockIcon('text-2col')
+@twillBlockTitle('Image Stripe')
+@twillBlockIcon('slideshow')
 @twillBlockGroup('app')
 
 <x-twill::medias

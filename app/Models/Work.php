@@ -29,7 +29,7 @@ class Work extends Model implements Sortable
 
     public $filesParams = [
         'feature_video',
-        'grid_video',
+        'grid_video'
     ];
 
     public $mediasParams = [
@@ -37,7 +37,7 @@ class Work extends Model implements Sortable
             'default' => [
                 [
                     'name' => 'default',
-                    'ratio' => 3 / 2,
+                    'ratio' => 16 / 9,
                 ],
             ],
         ],

@@ -3,18 +3,22 @@
 @twillBlockGroup('text')
 
 <x-twill::select
-    name="layout"
-    label="Layout"
+    name="size"
+    label="Size"
     :required="true"
-    :default="1"
+    default="medium"
     :options="[
         [
-            'value' => 1,
-            'label' => 'Default'
+            'value' => 'small',
+            'label' => 'Small'
         ],
         [
-            'value' => 2,
-            'label' => 'Narrow'
+            'value' => 'medium',
+            'label' => 'Medium'
+        ],
+        [
+            'value' => 'large',
+            'label' => 'Large'
         ]
     ]"
 />

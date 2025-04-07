@@ -33,8 +33,12 @@ return [
                 ],
             ],
         ],
+        'files' => [ 'video' ]
     ],
     'media_library' => [
         'allowed_extensions' => ['jpg', 'png', 'gif', 'svg', 'mp4', 'mov', 'webm'],
+    ],
+    'glide' => [
+        'original_media_for_extensions' => ['svg', 'gif']
     ]
 ];

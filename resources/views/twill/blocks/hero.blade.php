@@ -1,5 +1,5 @@
 @twillBlockTitle('Hero')
-@twillBlockIcon('text')
+@twillBlockIcon('star-feature_active')
 @twillBlockGroup('app')
 
 <x-twill::input

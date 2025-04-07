@@ -1,7 +1,7 @@
 @extends('site.template')
 
 @section('content')
-    <x-section class="bg-gray-200" space_top="large" space_bottom="medium">
+    <x-section space_top="large" space_bottom="none">
         <x-headline size="1">Work</x-headline>
     </x-section>
 
@@ -34,7 +34,7 @@
                                 <x-badge type="critical" class="relative ml-1 -top-1">New</x-badge>
                             @endif
                         </div>
-                        <div class="text-2xl leading-normal">{{ $work->client }} {{ $work->year }}</div>
+                        <div class="text-2xl leading-normal">{{ $work->year }} {{ $work->company }}</div>
                     </div>
 
                     <div class="gradient-blur-b absolute bottom-0 h-40 w-full z-20">
@@ -51,6 +51,9 @@
             @endforeach
         </div>
     </x-section>
+@endsection
 
-    <x-page_navigation page="work" />
+@section('page_navigation')
+    {{-- Work navigation --}}
+    <x-navigation_page page="work" />
 @endsection

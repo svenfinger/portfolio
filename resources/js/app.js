@@ -13,13 +13,13 @@ window.Autoplay = Autoplay
 document.addEventListener('alpine:init', () => {
   Alpine.data('clock', clock)
 
-  const canvas = document.getElementById('canvas3d')
+  const heroLogo = document.getElementById('hero-logo')
 
-  // start the application and load the scene
-  const spline = new Application(canvas)
-
-  spline
-    .load('https://prod.spline.design/2YyIpne5FYuNNWqZ/scene.splinecode')
+  if (heroLogo){
+    const splineHeroLogo = new Application(heroLogo)
+    splineHeroLogo
+    .load('https://prod.spline.design/fDlkZ5AnP0tWzeh5/scene.splinecode').then(r => {})
+  }
 });
 
 Alpine.start()
