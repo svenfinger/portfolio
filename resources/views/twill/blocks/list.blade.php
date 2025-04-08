@@ -1,5 +1,5 @@
 @twillBlockTitle('List')
-@twillBlockIcon('text-2col')
+@twillBlockIcon('b-checklist')
 @twillBlockGroup('app')
 
 <x-twill::select

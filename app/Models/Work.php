@@ -3,40 +3,45 @@
 namespace App\Models;
 
 use A17\Twill\Models\Behaviors\HasBlocks;
+use A17\Twill\Models\Behaviors\HasFiles;
 use A17\Twill\Models\Behaviors\HasSlug;
 use A17\Twill\Models\Behaviors\HasMedias;
 use A17\Twill\Models\Behaviors\HasPosition;
 use A17\Twill\Models\Behaviors\Sortable;
 use A17\Twill\Models\Model;
 
-class Project extends Model implements Sortable
+class Work extends Model implements Sortable
 {
-    use HasBlocks, HasSlug, HasMedias, HasPosition;
+    use HasBlocks, HasSlug, HasMedias, HasFiles, HasPosition;
 
     protected $fillable = [
         'published',
         'title',
         'year',
-        'client',
         'company',
         'description',
-        'type',
-        'role',
-        'process',
-        'tools',
         'position',
-        'link_primary',
-        'link_primary_label',
-        'link_secondary',
-        'link_secondary_label'
     ];
 
     public $slugAttributes = [
         'title',
     ];
 
+    public $filesParams = [
+        'feature_video',
+        'grid_video'
+    ];
+
     public $mediasParams = [
-        'cover' => [
+        'feature' => [
+            'default' => [
+                [
+                    'name' => 'default',
+                    'ratio' => 16 / 9,
+                ],
+            ],
+        ],
+        'grid' => [
             'default' => [
                 [
                     'name' => 'default',
@@ -44,25 +49,17 @@ class Project extends Model implements Sortable
                 ],
             ],
         ],
-        'share' => [
+        'social_preview' => [
             'default' => [
                 [
                     'name' => 'default',
-                    'ratio' => 16 / 9,
+                    'ratio' => 1.91,
                 ],
             ],
         ],
-        'images' => [
-            'default' => [
-                [
-                    'name' => 'default',
-                    'ratio' => 16 / 9,
-                ],
-            ],
-        ]
     ];
 
-    public function next($project){
-        return Project::where('position', '>', $project->position)->where('published', 1)->orderBy('position', 'asc')->first();
+    public function next($work){
+        return Work::where('position', '>', $work->position)->where('published', 1)->orderBy('position', 'asc')->first();
     }
 }

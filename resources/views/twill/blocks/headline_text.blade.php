@@ -1,5 +1,5 @@
-@twillBlockTitle('Headline + Text')
-@twillBlockIcon('text')
+@twillBlockTitle('Headline Text')
+@twillBlockIcon('editor')
 @twillBlockGroup('app')
 
 <x-twill::input

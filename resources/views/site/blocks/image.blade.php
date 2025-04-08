@@ -1,3 +1,4 @@
 <div>
-    <img src="{{ $block->image('image', 'default') }}" />
+    <img class="rounded-lg" src="{{ $block->image
+('image', 'default') }}" />
 </div>

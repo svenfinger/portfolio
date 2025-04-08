@@ -1,12 +1,10 @@
-<x-section layout="{{ $block->input('layout') }}">
-    <div class="flex flex-col gap-8">
-        @foreach ($block->children as $child)
-            <div class="flex flex-col gap-3 text-xl leading-normal border-t border-white/10 pt-3">
-                <div class="grid sm:grid-cols-2 gap-3 sm:gap-6">
-                    <x-prose><strong>{{ $child->input('label') }}</strong></x-prose>
-                    <x-prose>{!! $child->input('value') !!}</x-prose>
-                </div>
+<div class="flex flex-col gap-8">
+    @foreach ($block->children as $child)
+        <div class="flex flex-col gap-3 text-xl leading-normal border-t border-gray-200 pt-3">
+            <div class="grid sm:grid-cols-2 gap-3 sm:gap-6">
+                <x-prose><strong>{{ $child->input('label') }}</strong></x-prose>
+                <x-prose>{!! $child->input('value') !!}</x-prose>
             </div>
-        @endforeach
-    </div>
-</x-section>
+        </div>
+    @endforeach
+</div>

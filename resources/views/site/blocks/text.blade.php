@@ -1,3 +1,1 @@
-<x-section layout="{{ $block->input('layout') }}">
-    <x-prose>{!! $block->input('text') !!}</x-prose>
-</x-section>
+<x-prose class="mt-3" size="{{ $block->input('size') }}">{!! $block->input('text') !!}</x-prose>

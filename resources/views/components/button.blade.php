@@ -2,16 +2,16 @@
 
 @php
     $type = [
-        'primary' => 'bg-gradient-to-b from-blue-600 to-blue-800 hover:from-blue-500 hover:to-blue-700 shadow-outline shadow-white/10',
-        'secondary' => 'bg-gradient-to-b from-gray-700 to-gray-900 hover:from-gray-600 hover:to-gray-800 shadow-outline shadow-white/5',
+        'primary' => 'bg-blue-600 hover:bg-blue-700 active:bg-blue-800',
+        'secondary' => 'bg-gray-600 hover:bg-gray-700 active:bg-gray-800',
     ][$type];
 
     $size = [
-        'medium' => 'py-2 px-6',
-        'large' => 'py-3 px-8 text-lg',
+        'medium' => 'pt-3 pb-2.5 px-6',
+        'large' => 'px-8 text-lg',
     ][$size];
 @endphp
 
-<a {{ $attributes->merge(['class' => "inline-flex items-center justify-center text-center rounded focus:outline-1 outline-offset-2 outline-blue-500 $type $size"]) }}>
+<a {{ $attributes->merge(['class' => "font-display font-medium text-white shadow-button active:shadow-sm rounded-full duration-200 ease-in-out $type $size"]) }}>
     {{ $slot }}
 </a>

@@ -8,12 +8,12 @@ return [
         'homepage' => [
             'name' => 'Home',
             'buckets' => [
-                'home_featured_projects' => [
-                    'name' => 'Home Featured Projects',
+                'home_featured_work' => [
+                    'name' => 'Home Featured Work',
                     'bucketables' => [
                         [
-                            'module' => 'project',
-                            'name' => 'Projects',
+                            'module' => 'work',
+                            'name' => 'Work',
                             'scopes' => ['published' => true],
                         ],
                     ],
@@ -33,5 +33,12 @@ return [
                 ],
             ],
         ],
+        'files' => [ 'video' ]
     ],
+    'media_library' => [
+        'allowed_extensions' => ['jpg', 'png', 'gif', 'svg', 'mp4', 'mov', 'webm'],
+    ],
+    'glide' => [
+        'original_media_for_extensions' => ['svg', 'gif']
+    ]
 ];
