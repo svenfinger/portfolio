@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-12">
     @foreach ($block->children as $child)
         <div class="flex flex-col gap-3 text-xl leading-normal border-t border-gray-200 pt-3">
             <div class="grid sm:grid-cols-2 gap-3 sm:gap-6">

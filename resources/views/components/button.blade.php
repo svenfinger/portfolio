@@ -7,11 +7,11 @@
     ][$type];
 
     $size = [
-        'medium' => 'pt-3 pb-2.5 px-6',
+        'medium' => 'py-3 px-6',
         'large' => 'px-8 text-lg',
     ][$size];
 @endphp
 
-<a {{ $attributes->merge(['class' => "font-display font-medium text-white shadow-button active:shadow-sm rounded-full duration-200 ease-in-out $type $size"]) }}>
+<a {{ $attributes->merge(['class' => "inline-block font-display font-semibold text-white shadow-button active:shadow-sm rounded-lg transition duration-200 $type $size"]) }}>
     {{ $slot }}
 </a>

@@ -1,7 +1,7 @@
 @props(['page'])
 
 @if($page === 'frontpage' || $page === 'work' || (is_object($page) && !$page->noindex))
-    <x-section class="border-t border-gray-200" default_class="" space_top="medium" space_bottom="medium">
+    <x-section default_class="" space_top="medium" space_bottom="medium">
         <div class="max-w-screen-2xl m-auto px-6">
             <x-headline size="1">Up next</x-headline>
             @switch($page)

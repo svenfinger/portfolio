@@ -29,9 +29,10 @@
     @vite('resources/js/app.js')
     @vite('resources/css/app.css')
 
-    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
     <link rel="icon" href="{{ asset('icon.svg') }}" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="icon" href="{{ asset('favicon-96x96.png') }}" type="image/png" sizes="96x96" />
+    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="32x32">
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}" sizes="180x180">
 </head>
 <body>
     <div class="min-h-screen">
@@ -85,28 +86,26 @@
 
         {{-- Page Navigation --}}
         @hasSection('page_navigation')
-        <div class="{{ Request::is('work/*') ? "bg-black border-gray-800" : "border-gray-200" }}">
-            @yield('page_navigation')
-        </div>
+            <div class="{{ Request::is('work/*') ? "bg-gray-100" : "" }}">
+                @yield('page_navigation')
+            </div>
         @endif
 
         {{-- Footer --}}
-        <div class="py-5 border-t {{ Request::is('work/*') ? "bg-black border-gray-800" : "border-gray-200" }}">
+        <div class="py-5 {{ Request::is('work/*') ? "bg-gray-100" : "" }}">
             <div class="max-w-screen-2xl m-auto grid sm:grid-cols-2 gap-6 px-6">
                 <div class="flex gap-6 flex-col sm:flex-row">
-                    <x-prose size="small" class="{{ Request::is('work/*') ? 'prose-invert' : '' }}">
-                        <p>© {{ date('Y') }} Sven Finger</p>
-                    </x-prose>
+                    <p class="text-gray-500">© {{ date('Y') }} Sven Finger</p>
                     <div class="flex gap-6">
-                        <a href="/datenschutz" class="text-gray-500 underline-offset-2 decoration-2 hover:underline {{ Request::is('work/*') ? "decoration-gray-700 hover:text-white" : "decoration-gray-300 hover:text-black" }}">Datenschutz</a>
-                        <a href="/impressum" class="text-gray-500 underline-offset-2 decoration-2 hover:underline {{ Request::is('work/*') ? "decoration-gray-700 hover:text-white" : "decoration-gray-300 hover:text-black" }}">Impressum</a>
+                        <a href="/datenschutz" class="text-gray-500 underline-offset-2 decoration-2 underline decoration-transparent hover:decoration-gray-300 hover:text-black transition duration-200">Datenschutz</a>
+                        <a href="/impressum" class="text-gray-500 underline-offset-2 decoration-2 underline decoration-transparent hover:decoration-gray-300 hover:text-black transition duration-200">Impressum</a>
                     </div>
                 </div>
                 <div class="flex gap-6 sm:justify-end">
-                    <a href="https://www.linkedin.com/in/svenfinger/" target="_blank" class="text-gray-500 underline-offset-2 decoration-2 hover:underline {{ Request::is('work/*') ? "decoration-gray-700 hover:text-white" : "decoration-gray-300 hover:text-black" }}">LinkedIn</a>
-                    <a href="https://github.com/svenfinger" target="_blank" class="text-gray-500 underline-offset-2 decoration-2 hover:underline {{ Request::is('work/*') ? "decoration-gray-700 hover:text-white" : "decoration-gray-300 hover:text-black" }}">GitHub</a>
-                    <a href="https://www.instagram.com/svenfinger.digital/" target="_blank"  class="text-gray-500 underline-offset-2 decoration-2 hover:underline {{ Request::is('work/*') ? "decoration-gray-700 hover:text-white" : "decoration-gray-300 hover:text-black" }}">Instagram</a>
-                    <a href="https://www.threads.net/@svenfinger.digital" target="_blank"  class="text-gray-500 underline-offset-2 decoration-2 hover:underline {{ Request::is('work/*') ? "decoration-gray-700 hover:text-white" : "decoration-gray-300 hover:text-black" }}">Threads</a>
+                    <a href="https://www.linkedin.com/in/svenfinger/" target="_blank" class="text-gray-500 underline-offset-2 decoration-2 underline decoration-transparent hover:decoration-gray-300 hover:text-black transition duration-200">LinkedIn</a>
+                    <a href="https://github.com/svenfinger" target="_blank" class="text-gray-500 underline-offset-2 decoration-2 underline decoration-transparent hover:decoration-gray-300 hover:text-black transition duration-200">GitHub</a>
+                    <a href="https://www.instagram.com/svenfinger.digital/" target="_blank"  class="text-gray-500 underline-offset-2 decoration-2 underline decoration-transparent hover:decoration-gray-300 hover:text-black transition duration-200">Instagram</a>
+                    <a href="https://www.threads.net/@svenfinger.digital" target="_blank"  class="text-gray-500 underline-offset-2 decoration-2 underline decoration-transparent hover:decoration-gray-300 hover:text-black transition duration-200">Threads</a>
                 </div>
             </div>
         </div>
