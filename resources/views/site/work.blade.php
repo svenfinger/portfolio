@@ -12,7 +12,7 @@
                     <div class="absolute inset-0 z-10 bg-black/15 opacity-0 group-hover:opacity-100 transition-all duration-200"></div>
 
                     @if ($work->file('grid_video'))
-                        <video autoplay loop muted preload poster="{{ $work->image('grid', 'default') }}">
+                        <video playsinline autoplay muted loop preload>
                             <source src="{{ $work->file('grid_video') }}" type="video/mp4">
                         </video>
                     @else
