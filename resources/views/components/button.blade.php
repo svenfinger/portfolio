@@ -7,7 +7,7 @@
     ][$type];
 
     $size = [
-        'medium' => 'py-3 px-6',
+        'medium' => 'pt-3.5 pb-2.5 px-6',
         'large' => 'px-8 text-lg',
     ][$size];
 @endphp

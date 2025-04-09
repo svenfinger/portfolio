@@ -38,13 +38,13 @@
     <div class="min-h-screen">
 
         {{-- Header --}}
-        <nav x-data="{ open: false }" class="bg-white/70 backdrop-blur-2xl z-50 fixed top-0 left-0 right-0 py-px">
+        <nav x-data="{ open: false }" class="bg-white/70 backdrop-blur-2xl z-50 fixed top-0 left-0 right-0">
             <div @class([
                     'flex px-6 justify-between max-w-screen-2xl m-auto',
                 ])>
-                <a class="flex items-center gap-2 shrink-0 font-display font-semibold text-lg tracking-tight py-4 {{ Request::is('/') ? "opacity-100" : "opacity-90 hover:opacity-100" }}" href="/">
+                <a class="flex items-center gap-2 shrink-0 font-display font-semibold text-lg tracking-tight py-4.5 {{ Request::is('/') ? "opacity-100" : "opacity-90 hover:opacity-100" }}" href="/">
                     <img src="{{ asset('assets/img/logo.svg') }}" width="20" height="20" alt="Sven Finger">
-                    <span>Sven Finger</span>
+                    <span class="relative top-0.5">Sven Finger</span>
                 </a>
                 <div class="items-center hidden lg:flex">
                     <div class="flex grow gap-12">
