@@ -33,6 +33,8 @@
     <link rel="icon" href="{{ asset('favicon-96x96.png') }}" type="image/png" sizes="96x96" />
     <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="32x32">
     <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}" sizes="180x180">
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XRWPNKPV" defer></script>
 </head>
 <body>
     <div class="min-h-screen">
