@@ -72,8 +72,8 @@
             <div class="flex-col px-6 sm:px-10 pb-6 border-b border-white/10" x-cloak :class="open ? 'flex' : 'hidden'">
                 <div class="flex flex-col items-start gap-6 text-xl">
                     <a href="/" class="py-3 {{ Request::is('/') ? "border-b-2 border-blue-600" : "text-gray-500 hover:text-black hover:border-b-2 border-gray-300" }}">Intro</a>
-                    <a href="{{ route('frontend.page', 'about') }}" class="py-3 {{ Request::is('about') ? "border-b-2 border-blue-600" : "text-gray-500 hover:text-black hover:border-b-2 border-gray-300" }}">About</a>
                     <a href="{{ route('frontend.page', 'work') }}" class="py-3 {{ Request::is('work', 'work/*') ? "border-b-2 border-blue-600" : "text-gray-500 hover:text-black hover:border-b-2 border-gray-300" }}">Work</a>
+                    <a href="{{ route('frontend.page', 'about') }}" class="py-3 {{ Request::is('about') ? "border-b-2 border-blue-600" : "text-gray-500 hover:text-black hover:border-b-2 border-gray-300" }}">About</a>
                     <a href="{{ route('frontend.page', 'contact') }}" class="py-3 {{ Request::is('contact') ? "border-b-2 border-blue-600" : "text-gray-500 hover:text-black hover:border-b-2 border-gray-300" }}">Contact</a>
                 </div>
             </div>
