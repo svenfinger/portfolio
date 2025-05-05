@@ -1,0 +1,20 @@
+---
+import { sanityClient } from "sanity:client"
+
+const pages = await sanityClient.fetch(`*[_type == "page" && showInFooter == true] | order(orderRank asc) {
+  title,
+  slug,
+}`)
+---
+<footer class="grid grid-cols-2 border-t-1 border-gray-200 dark:border-gray-800 py-5 gap-6">
+    <div class="flex gap-6">
+        <span>© {import.meta.env.PUBLIC_SITE_NAME}</span>
+        {pages.map((page: typeof pages[number]) => (
+            <a href={`/${page.slug.current}`}>{page.title}</a>
+        ))}
+    </div>
+    <div class="flex gap-6">
+        <a href="https://www.linkedin.com/in/svenfinger/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/svenfinger" target="_blank">GitHub</a>
+    </div>
+</footer>

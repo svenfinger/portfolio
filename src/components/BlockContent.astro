@@ -1,0 +1,16 @@
+---
+import { PortableText } from 'astro-portabletext'
+import Body from './portable_text/Body.astro'
+import TwoColumn from './portable_text/TwoColumn.astro'
+
+const { value } = Astro.props
+
+const components = {
+  type: {
+    body: Body,
+    twoColumn: TwoColumn,
+  }
+}
+---
+
+<PortableText value={value} components={components} />

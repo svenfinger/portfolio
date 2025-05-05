@@ -1,0 +1,13 @@
+---
+import { sanityClient } from 'sanity:client';
+import Layout from '../layouts/Layout.astro';
+import BlockContent from '../components/BlockContent.astro';
+
+const page = await sanityClient.fetch(`*[_type == "page" && isHome == true][0] { body }`);
+
+const { body } = page;
+---
+
+<Layout>
+  <BlockContent value={body} />
+</Layout>

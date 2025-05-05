@@ -1,0 +1,22 @@
+---
+import { PortableText } from "astro-portabletext";
+import type { BodyBlock } from "../../lib/sanityTypes";
+
+const { node } = Astro.props;
+
+const leftItems: BodyBlock[] = node.left || [];
+const rightItems: BodyBlock[] = node.right || [];
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="flex flex-col gap-4">
+    {leftItems.map(item => (
+      <PortableText value={item.body} />
+    ))}
+  </div>
+  <div class="flex flex-col gap-4">
+    {rightItems.map(item => (
+      <PortableText value={item.body} />
+    ))}
+  </div>
+</div>
