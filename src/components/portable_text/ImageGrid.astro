@@ -1,0 +1,22 @@
+---
+import { urlFor } from '../../lib/sanityImage'
+import { Image } from 'astro:assets';
+import { type SanityImageSource } from '@sanity/image-url/lib/types/types';
+
+const { node } = Astro.props;
+const images = node.images;
+
+---
+
+<section class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+  {images.map((image: SanityImageSource) => (
+    <Image
+      src={urlFor(image).width(684).url()}
+      alt=""
+      inferSize={true}
+      class="image-item"
+      format="auto"
+      loading="eager"
+    />
+  ))}
+</section>

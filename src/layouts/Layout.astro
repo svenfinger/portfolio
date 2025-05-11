@@ -3,24 +3,26 @@ import Head from '../components/Head.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import '../styles/global.css'
+import { ClientRouter } from "astro:transitions";
 
 const { title = import.meta.env.PUBLIC_SITE_NAME } = Astro.props
 ---
 <!doctype html>
-<html lang="en" class="bg-white text-black dark:bg-black dark:text-white">
+<html lang="en" class="bg-white text-black dark:bg-black dark:text-white overflow-y-scroll" transition:animate="none">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<title>{title}</title>
 		<Head title={title} />
+    <ClientRouter />
 	</head>
 	<body class="px-6 text-sm">
 		<div class="max-w-8xl m-auto">
 			<Header />
 
-			<div class="py-5">
+			<main class="py-5" transition:animate="fade">
 				<slot />
-			</div>
+			</main>
 
 			<Footer />
 		</div>

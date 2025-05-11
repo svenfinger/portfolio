@@ -12,13 +12,13 @@ const page_home = await sanityClient.fetch(`*[_type == "page" && isHome == true]
   <div>
     <a href="/" class="inline-block">
       <div>{import.meta.env.PUBLIC_SITE_NAME}</div>
-      <div class="text-gray-500">{import.meta.env.PUBLIC_SITE_TITLE}</div>
+      <p class="text-gray-500">{import.meta.env.PUBLIC_SITE_TITLE}</p>
     </a>
   </div>
-  <div class="flex gap-6">
+  <nav class="flex flex-col sm:flex-row sm:gap-6">
     <a href="/">{page_home.title}</a>
     {pages.map((page: typeof pages[number]) => (
       <a href={`/${page.slug.current}`}>{page.title}</a>
     ))}
-  </div>
+  </nav>
 </header>

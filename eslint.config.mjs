@@ -1,23 +1,40 @@
-import js from '@eslint/js'
-import tseslint from 'typescript-eslint'
-import prettier from 'eslint-config-prettier'
+import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import prettier from 'eslint-config-prettier';
 
 export default [
-    js.configs.recommended,
-    ...tseslint.configs.recommended,
-    ...tseslint.configs.recommendedTypeChecked,
-    {
-        files: ['**/*.ts', '**/*.tsx'],
-        languageOptions: {
-            parserOptions: {
-                project: './tsconfig.json'
-            }
-        },
-        rules: {
-            semi: ['error', 'always'],
-            quotes: ['error', 'single']
-        }
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        project: './tsconfig.json',
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
     },
-    prettier
-]
-
+    rules: {
+      semi: ['error', 'always'],
+      quotes: ['error', 'single'],
+    },
+  },
+  {
+    files: ['**/*.mjs'],
+    languageOptions: {
+      globals: {
+        process: 'readonly',
+      },
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+    },
+  },
+  {
+    ignores: ['.astro/**/*'],
+  },
+  {
+    ignores: ['**/*.astro'],
+  },
+  prettier,
+];

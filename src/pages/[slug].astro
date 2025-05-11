@@ -20,5 +20,8 @@ const page = await sanityClient.fetch(
 ---
 
 <Layout title=`${page.title} | ${import.meta.env.PUBLIC_SITE_NAME}`>
+  <div class="pt-48 pb-12">
+    {page.title}
+  </div>
   <BlockContent value={page.body} />
 </Layout>
