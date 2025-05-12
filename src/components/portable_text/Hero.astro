@@ -1,0 +1,13 @@
+---
+import { PortableText } from "astro-portabletext";
+
+
+const { node } = Astro.props;
+console.log(node)
+---
+
+<section class="sm:grid sm:grid-cols-2 gap-6 min-h-section pt-48 pb-48">
+  <div>
+    <PortableText value={node.body} />
+  </div>
+</section>
