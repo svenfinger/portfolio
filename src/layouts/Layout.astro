@@ -3,9 +3,13 @@ import Head from '../components/Head.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import '../styles/global.css'
+import { sanityClient } from 'sanity:client';
 import { ClientRouter } from "astro:transitions";
 
-const { title = import.meta.env.PUBLIC_SITE_NAME } = Astro.props
+const configuration = await sanityClient.fetch(`*[_type == "configuration"][0]`);
+const { title: propTitle } = Astro.props;
+const { title: configTitle, ogImage } = configuration;
+const title = propTitle || configTitle;
 ---
 <!doctype html>
 <html lang="en" class="bg-white text-black dark:bg-black dark:text-white overflow-y-scroll" transition:animate="none">
@@ -13,7 +17,7 @@ const { title = import.meta.env.PUBLIC_SITE_NAME } = Astro.props
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<title>{title}</title>
-		<Head title={title} />
+		<Head title={title} ogImage={ogImage} />
     <ClientRouter />
 	</head>
 	<body class="px-6 text-sm">
