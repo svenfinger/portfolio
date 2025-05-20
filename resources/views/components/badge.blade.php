@@ -8,5 +8,5 @@
 @endphp
 
 <span {{ $attributes->merge(['class' => "inline-block rounded-full text-xs leading-normal uppercase tracking-wide px-2 $type"]) }}>
-    <span class="relative top-0.5">{{ $slot }}</span>
+    <span class="relative -top-px">{{ $slot }}</span>
 </span>

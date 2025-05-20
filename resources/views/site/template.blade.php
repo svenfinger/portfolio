@@ -46,7 +46,7 @@
                 ])>
                 <a class="flex items-center gap-2 shrink-0 font-display font-semibold text-lg tracking-tight py-4.5 {{ Request::is('/') ? "opacity-100" : "opacity-90 hover:opacity-100" }}" href="/">
                     <img src="{{ asset('assets/img/logo.svg') }}" width="20" height="20" alt="Sven Finger">
-                    <span class="relative top-0.5">Sven Finger</span>
+                    <span class="relative -top-px">Sven Finger</span>
                 </a>
                 <div class="items-center hidden lg:flex">
                     <div class="flex grow gap-12">
