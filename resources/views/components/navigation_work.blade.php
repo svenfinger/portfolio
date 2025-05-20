@@ -17,7 +17,7 @@
                 @endif
 
                 <div class="absolute bottom-0 w-full z-30 px-6 py-4.5 text-white sm:flex justify-between">
-                    <div class="text-xl sm:text-2xl leading-normal font-display font-semibold">
+                    <div class="text-xl sm:text-2xl leading-normal font-display font-medium">
                         {{ $work->title }}
                         @php
                             $createdDate = new DateTime($work->created_at);

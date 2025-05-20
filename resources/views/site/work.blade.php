@@ -21,7 +21,7 @@
                     @endif
 
                     <div class="absolute bottom-0 w-full z-30 px-6 py-4.5 text-white">
-                        <div class="text-2xl leading-normal font-display font-semibold">
+                        <div class="text-2xl leading-normal font-display font-medium">
                             {{ $work->title }}
                             @php
                                 $createdDate = new DateTime($work->created_at);

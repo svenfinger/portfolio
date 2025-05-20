@@ -12,6 +12,6 @@
     ][$size];
 @endphp
 
-<a {{ $attributes->merge(['class' => "inline-block font-display font-semibold text-white shadow-button active:shadow-sm rounded-lg transition duration-200 $type $size"]) }}>
+<a {{ $attributes->merge(['class' => "inline-block font-display font-medium text-white shadow-button active:shadow-sm rounded-lg transition duration-200 $type $size"]) }}>
     {{ $slot }}
 </a>

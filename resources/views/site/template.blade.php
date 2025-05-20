@@ -44,7 +44,7 @@
             <div @class([
                     'flex px-6 justify-between max-w-screen-2xl m-auto',
                 ])>
-                <a class="flex items-center gap-2 shrink-0 font-display font-semibold text-lg tracking-tight py-4.5 {{ Request::is('/') ? "opacity-100" : "opacity-90 hover:opacity-100" }}" href="/">
+                <a class="flex items-center gap-2 shrink-0 font-display font-medium text-lg tracking-tight py-4.5 {{ Request::is('/') ? "opacity-100" : "opacity-90 hover:opacity-100" }}" href="/">
                     <img src="{{ asset('assets/img/logo.svg') }}" width="20" height="20" alt="Sven Finger">
                     <span class="relative -top-px">Sven Finger</span>
                 </a>

@@ -16,7 +16,6 @@
         'prose-headings:leading-tight',
         'prose-headings:md:leading-tight',
         'prose-headings:tracking-tight',
-        'prose-headings:font-semibold',
         'prose-h1:text-5xl',
         'prose-h1:md:text-6xl',
         'prose-h2:text-4xl',
