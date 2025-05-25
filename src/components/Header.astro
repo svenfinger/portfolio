@@ -7,15 +7,17 @@ const pages = await sanityClient.fetch(`*[_type == "page" && showInMenu == true 
 }`)
 
 const page_home = await sanityClient.fetch(`*[_type == "page" && isHome == true][0] { title }`)
+
+const { title, subline } = Astro.props;
 ---
 <header class="grid grid-cols-2 border-b-1 border-b-gray-200 dark:border-b-gray-800 py-5 gap-6">
   <div>
     <a href="/" class="inline-block">
-      <div>{import.meta.env.PUBLIC_SITE_NAME}</div>
-      <p class="text-gray-500">{import.meta.env.PUBLIC_SITE_TITLE}</p>
+      <div>{title}</div>
+      <p class="text-gray-500">{subline}</p>
     </a>
   </div>
-  <nav class="flex flex-col sm:flex-row sm:gap-6">
+  <nav class="flex flex-col sm:flex-row gap-3 sm:gap-6">
     <a href="/">{page_home.title}</a>
     {pages.map((page: typeof pages[number]) => (
       <a href={`/${page.slug.current}`}>{page.title}</a>

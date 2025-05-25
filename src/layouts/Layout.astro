@@ -8,11 +8,11 @@ import { ClientRouter } from "astro:transitions";
 
 const configuration = await sanityClient.fetch(`*[_type == "configuration"][0]`);
 const { title: propTitle } = Astro.props;
-const { title: configTitle, ogImage } = configuration;
+const { title: configTitle, subline, ogImage } = configuration;
 const title = propTitle || configTitle;
 ---
 <!doctype html>
-<html lang="en" class="bg-white text-black dark:bg-black dark:text-white overflow-y-scroll" transition:animate="none">
+<html lang="en" class="bg-gray-100 text-gray-800 dark:bg-gray-950 dark:text-gray-200 overflow-y-scroll" transition:animate="none">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -22,13 +22,13 @@ const title = propTitle || configTitle;
 	</head>
 	<body class="px-6 text-sm">
 		<div class="max-w-8xl m-auto">
-			<Header />
+			<Header title={configTitle} subline={subline} />
 
 			<main class="py-5" transition:animate="fade">
 				<slot />
 			</main>
 
-			<Footer />
+			<Footer title={configTitle} />
 		</div>
 	</body>
 </html>
