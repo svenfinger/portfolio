@@ -1,6 +1,8 @@
 ---
 import { PortableText } from "astro-portabletext";
 import type { BodyBlock } from "../../lib/sanityTypes";
+import List from "./List.astro";
+import ExperienceList from "./ExperienceList.astro";
 
 const { node } = Astro.props;
 
@@ -16,8 +18,16 @@ const rightItems: BodyBlock[] = node.right || [];
     ))}
   </div>
   <div class="flex flex-col gap-4 py-6">
-    {rightItems.map(item => (
-      <PortableText value={item.body} />
-    ))}
+    {rightItems.map(item => {
+      if (item._type === 'list') {
+        return <List node={item} />;
+      }
+
+      if (item._type === 'experienceList') {
+        return <ExperienceList node={item} />;
+      }
+
+      return <PortableText value={item.body} />;
+    })}
   </div>
 </section>

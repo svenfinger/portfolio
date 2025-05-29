@@ -9,7 +9,8 @@ import { ClientRouter } from "astro:transitions";
 const configuration = await sanityClient.fetch(`*[_type == "configuration"][0]`);
 const { title: propTitle } = Astro.props;
 const { title: configTitle, subline, ogImage } = configuration;
-const title = propTitle || configTitle;
+const title = propTitle ? `${propTitle} | ${configTitle}` : configTitle;
+
 ---
 <!doctype html>
 <html lang="en" class="bg-gray-100 text-gray-800 dark:bg-gray-950 dark:text-gray-200 overflow-y-scroll" transition:animate="none">
