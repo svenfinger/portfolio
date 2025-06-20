@@ -19,6 +19,7 @@ const { title, subline } = Astro.props;
   </div>
   <nav class="flex flex-col sm:flex-row gap-3 sm:gap-6">
     <a href="/">{page_home.title}</a>
+    <a href="/work">Work</a>
     {pages.map((page: typeof pages[number]) => (
       <a href={`/${page.slug.current}`}>{page.title}</a>
     ))}

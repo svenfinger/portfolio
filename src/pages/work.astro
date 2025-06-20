@@ -1,0 +1,32 @@
+---
+import { sanityClient } from 'sanity:client';
+import { urlFor } from '../lib/sanityImage'
+import { Image } from 'astro:assets'
+import Layout from '../layouts/Layout.astro';
+
+const works = await sanityClient.fetch(`*[_type == "work" && defined(slug.current)] | order(publishedAt desc)`);
+---
+
+<Layout>
+  <div class="pt-48 pb-12">
+    Work
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-12 pb-48">
+    {works.map((work) => (
+      <a href={`/work/${work.slug.current}`}>
+        <Image
+          src={urlFor(work.image).width(2880).url()}
+          alt={work.image.alt || ''}
+          inferSize={true}
+          class="mb-3"
+          format="auto"
+          loading="eager"
+          style={`view-transition-name: ${work.slug.current};`}
+        />
+        {work.title}
+        <div class="text-gray-500">{work.subline}</div>
+      </a>
+    ))}
+  </div>
+
+</Layout>
