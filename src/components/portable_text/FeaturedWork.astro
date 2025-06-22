@@ -1,0 +1,30 @@
+---
+import { urlFor } from '../../lib/sanityImage'
+import { Image } from 'astro:assets';
+import { resolveWorkRefs } from '../../lib/resolveWorkRefs';
+
+const { node } = Astro.props;
+const works = await resolveWorkRefs(node.works);
+---
+
+<section class="pb-48 pt-12 min-h-section border-t border-gray-200 dark:border-gray-800">
+  <div class="pb-6">
+    {node.title}
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-12">
+    {works.map((work) => (
+      <a href={`/work/${work.slug.current}`}>
+        <Image
+          src={urlFor(work.image).width(2880).url()}
+          alt={work.image.alt || ''}
+          inferSize={true}
+          class="mb-3"
+          format="auto"
+          loading="eager"
+        />
+        {work.title}
+        <div class="text-gray-500">{work.subline}</div>
+      </a>
+    ))}
+  </div>
+</section>

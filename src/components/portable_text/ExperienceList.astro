@@ -1,0 +1,42 @@
+---
+import Button from '../Button.astro';
+import IconArrow from '../../assets/icons/arrow-up-right.svg'
+
+interface ExperienceList {
+  _type: string;
+  company?: string;
+  jobTitle?: string;
+  timeframe?: string;
+}
+
+const { node } = Astro.props;
+const items = node.experiences || [];
+const link = node.link;
+---
+
+<ul class="divide-y divide-gray-200 dark:divide-gray-800 space-y-6">
+  {items.map((item: ExperienceList) => (
+    <li class="pb-6 grid grid-cols-2 sm:grid-cols-3 gap-6">
+      <div class="grid sm:grid-cols-2 sm:col-span-2">
+        <span>{item.company}</span>
+        <span>{item.jobTitle}</span>
+      </div>
+      <span class="text-gray-500">{item.timeframe}</span>
+    </li>
+  ))}
+</ul>
+
+{
+  link && (
+    <div>
+      <Button
+        href={link.url}
+        text={link.text}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <IconArrow slot="icon-right" />
+      </Button>
+    </div>
+  )
+}

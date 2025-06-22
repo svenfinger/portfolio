@@ -1,0 +1,22 @@
+---
+import { urlFor } from '../../lib/sanityImage'
+import { Image } from 'astro:assets';
+
+const { node } = Astro.props;
+const image = node.image;
+---
+
+<section class="pb-48">
+  <Image
+    src={urlFor(image).width(2880).url()}
+    alt={image.alt || ''}
+    inferSize={true}
+    class="mb-6"
+    format="auto"
+    loading="eager"
+  />
+  <div class="grid sm:grid-cols-2 gap-6">
+    <div></div>
+    <p>{node.text}</p>
+  </div>
+</section>

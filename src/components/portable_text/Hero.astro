@@ -1,0 +1,24 @@
+---
+import { urlFor } from '../../lib/sanityImage';
+import { Image } from 'astro:assets';
+
+const { node } = Astro.props;
+---
+
+<div class="pt-48 pb-48">
+  <div class="pb-7">
+    {node.title}
+    <div class="text-gray-500">{node.subtitle}</div>
+  </div>
+  <div class="relative inline-block">
+    <Image
+      src={urlFor(node.image).width(2880).url()}
+      alt={node.image.alt || ''}
+      inferSize={true}
+      class="block"
+      format="auto"
+      loading="eager"
+    />
+    <div class="absolute inset-0 border border-black/5 dark:border-white/10 mix-blend-multiply dark:mix-blend-normal pointer-events-none"></div>
+  </div>
+</div>

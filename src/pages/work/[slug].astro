@@ -1,0 +1,70 @@
+---
+import { sanityClient } from 'sanity:client'
+import { urlFor } from '../../lib/sanityImage'
+import { Image } from 'astro:assets'
+import Layout from '../../layouts/Layout.astro'
+import BlockContent from '../../components/BlockContent.astro'
+
+export async function getStaticPaths() {
+  const works = await sanityClient.fetch(`*[_type == "work" && defined(slug.current) && isHome != true]`);
+
+  return works.map((work: any) => ({
+    params: { slug: work.slug.current },
+  }))
+}
+
+const { slug } = Astro.params
+
+const work = await sanityClient.fetch(
+  `*[_type == "work" && slug.current == $slug && isHome != true][0]{...}`,
+  { slug }
+)
+---
+
+<Layout title=`${work.title}`>
+  <div class="pt-48 pb-7">
+    {work.title}
+    <div class="text-gray-500">{work.subline}</div>
+  </div>
+  <div class="pb-48">
+    <Image
+      src={urlFor(work.image).width(2880).url()}
+      alt={work.image.alt || ''}
+      inferSize={true}
+      format="auto"
+      loading="eager"
+      style={`view-transition-name: ${work.slug.current};`}
+    />
+  </div>
+  <section class:list={[ 'sm:grid sm:grid-cols-2 gap-6 min-h-section pt-6 pb-48' ]}>
+    <div class="flex flex-col gap-4 pt-6">
+    </div>
+    <div class="flex flex-col gap-4 py-6 border-t border-gray-200 dark:border-gray-800">
+      <ul class="divide-y divide-gray-200 dark:divide-gray-800 space-y-6">
+        <li class="pb-6 grid grid-cols-2 gap-6">
+          <span>Industry</span>
+          <span>{work.industry}</span>
+        </li>
+        <li class="pb-6 grid grid-cols-2 gap-6">
+          <span>Company Size</span>
+          <span>{work.company_size}</span>
+        </li>
+        <li class="pb-6 grid grid-cols-2 gap-6">
+          <span>Project Team</span>
+          <div>
+            <BlockContent value={work.project_team} />
+          </div>
+        </li>
+        <li class="pb-6 grid sm:grid-cols-2 gap-3 sm:gap-6">
+          <span>Role</span>
+          <span>{work.role}</span>
+        </li>
+        <li class="pb-6 grid sm:grid-cols-2 gap-3 sm:gap-6">
+          <span>Process</span>
+          <span>{work.process}</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <BlockContent value={work.body} />
+</Layout>
