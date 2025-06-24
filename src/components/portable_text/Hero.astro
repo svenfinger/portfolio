@@ -1,6 +1,7 @@
 ---
 import { urlFor } from '../../lib/sanityImage';
 import { Image } from 'astro:assets';
+import Media from '../Media.astro';
 
 const { node } = Astro.props;
 ---
@@ -10,7 +11,7 @@ const { node } = Astro.props;
     {node.title}
     <div class="text-gray-500">{node.subtitle}</div>
   </div>
-  <div class="relative inline-block">
+  <Media>
     <Image
       src={urlFor(node.image).width(2880).url()}
       alt={node.image.alt || ''}
@@ -18,7 +19,7 @@ const { node } = Astro.props;
       class="block"
       format="auto"
       loading="eager"
+      slot="media"
     />
-    <div class="absolute inset-0 border border-black/5 dark:border-white/10 mix-blend-multiply dark:mix-blend-normal pointer-events-none"></div>
-  </div>
+  </Media>
 </div>
