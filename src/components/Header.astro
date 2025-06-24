@@ -9,16 +9,28 @@ const pages = await sanityClient.fetch(`*[_type == "page" && showInMenu == true 
 const page_home = await sanityClient.fetch(`*[_type == "page" && isHome == true][0] { title }`)
 
 const { title } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const getNavClass = (isActive: boolean) => isActive ? "" : "text-gray-500";
 ---
 <header class="grid sm:grid-cols-2 border-b-1 border-b-gray-200 dark:border-b-gray-800 py-5 gap-4 sm:gap-6">
   <div>
     <a href="/">{title}</a>
   </div>
   <nav class="grid grid-cols-4 sm:flex gap-4 sm:gap-6">
-    <a href="/">{page_home.title}</a>
-    <a href="/work">Work</a>
+    <a
+      href="/"
+      class={getNavClass(currentPath === "/")}
+    >{page_home.title}</a>
+    <a
+      href="/work"
+      class={getNavClass(currentPath.startsWith("/work"))}
+    >Work</a>
     {pages.map((page: typeof pages[number]) => (
-      <a href={`/${page.slug.current}`}>{page.title}</a>
+      <a
+        href={`/${page.slug.current}`}
+        class={getNavClass(currentPath === `/${page.slug.current}`)}
+      >{page.title}</a>
     ))}
   </nav>
 </header>

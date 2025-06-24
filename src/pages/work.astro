@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout.astro';
 const works = await sanityClient.fetch(`*[_type == "work" && defined(slug.current)] | order(publishedAt desc)`);
 ---
 
-<Layout>
+<Layout title="Work">
   <div class="pt-48 pb-12">
     Work
   </div>
