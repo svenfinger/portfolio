@@ -21,7 +21,7 @@ const work = await sanityClient.fetch(
 )
 ---
 
-<Layout title=`${work.title}`>
+<Layout title=`${work.title}` description=`${work.subline}`>
   <div class="pt-48 pb-7">
     {work.title}
     <div class="text-gray-500">{work.subline}</div>

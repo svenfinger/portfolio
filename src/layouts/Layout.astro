@@ -7,22 +7,31 @@ import { sanityClient } from 'sanity:client';
 import { ClientRouter } from "astro:transitions";
 
 const configuration = await sanityClient.fetch(`*[_type == "configuration"][0]`);
-const { title: propTitle } = Astro.props;
-const { title: configTitle, subline, ogImage } = configuration;
+const { title: propTitle, description: propDescription } = Astro.props;
+const { title: configTitle, description: configDescription, ogImage } = configuration;
 const title = propTitle ? `${propTitle} | ${configTitle}` : configTitle;
+const description = propDescription ? propDescription : configDescription;
+console.log(propDescription)
 ---
 <!doctype html>
-<html lang="en" class="bg-white text-black dark:bg-black dark:text-white overflow-y-scroll 2xl:text-lg" transition:animate="none">
+<html
+  lang="en"
+  class="bg-white text-black dark:bg-black dark:text-white overflow-y-scroll 2xl:text-lg"
+  transition:animate="none"
+>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+
 		<title>{title}</title>
-		<Head title={title} ogImage={ogImage} />
+
+		<Head title={title} description={description} ogImage={ogImage} />
+
     <ClientRouter />
 	</head>
 	<body class="px-4 sm:px-6 text-sm">
 		<div class="max-w-8xl m-auto">
-			<Header title={configTitle} subline={subline} />
+			<Header title={configTitle} />
 
 			<main transition:animate="fade">
 				<slot />
