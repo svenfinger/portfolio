@@ -5,18 +5,36 @@ import Media from '../Media.astro';
 
 const { node } = Astro.props;
 const image = node.image;
+const video = node.video;
+
+const isImage = !!image;
+const isVideo = !!video;
+const videoUrl = isVideo ? `https://cdn.sanity.io/files/${import.meta.env.SANITY_STUDIO_PROJECT_ID}/${import.meta.env.SANITY_STUDIO_DATASET}/${video.asset._ref.replace('file-', '').replace(/-/g, '.').replace('.mp4.', '.mp4')}` : null;
 ---
 
 <section class="pb-48">
   <Media>
-    <Image
-      src={urlFor(image).width(2880).url()}
-      alt={image.alt || ''}
-      inferSize={true}
-      format="auto"
-      loading="lazy"
-      slot="media"
-    />
+    {isImage && (
+      <Image
+        src={urlFor(image).width(2880).url()}
+        alt={image.alt || ''}
+        inferSize={true}
+        format="auto"
+        loading="lazy"
+        slot="media"
+      />
+    )}
+    {isVideo && (
+      <video
+        src={videoUrl}
+        playsinline
+        muted
+        autoplay
+        loop
+        slot="media"
+        class="w-full h-auto"
+      />
+    )}
   </Media>
   <div class="grid sm:grid-cols-2 pt-6 sm:gap-6">
     <div></div>
