@@ -11,7 +11,6 @@ const { title: propTitle, description: propDescription } = Astro.props;
 const { title: configTitle, description: configDescription, ogImage } = configuration;
 const title = propTitle ? `${propTitle} | ${configTitle}` : configTitle;
 const description = propDescription ? propDescription : configDescription;
-console.log(propDescription)
 ---
 <!doctype html>
 <html
