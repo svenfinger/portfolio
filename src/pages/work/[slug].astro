@@ -6,7 +6,7 @@ import Layout from '../../layouts/Layout.astro'
 import BlockContent from '../../components/BlockContent.astro'
 
 export async function getStaticPaths() {
-  const works = await sanityClient.fetch(`*[_type == "work" && defined(slug.current) && isHome != true]`);
+  const works = await sanityClient.fetch(`*[_type == "work" && defined(slug.current)]`);
 
   return works.map((work: any) => ({
     params: { slug: work.slug.current },
@@ -55,11 +55,11 @@ const work = await sanityClient.fetch(
             <BlockContent value={work.project_team} />
           </div>
         </li>
-        <li class="pb-6 grid sm:grid-cols-2 gap-3 sm:gap-6">
+        <li class="pb-6 grid lg:grid-cols-2 gap-3 lg:gap-6">
           <span>Role</span>
           <span>{work.role}</span>
         </li>
-        <li class="pb-6 grid sm:grid-cols-2 gap-3 sm:gap-6">
+        <li class="pb-6 grid lg:grid-cols-2 gap-3 lg:gap-6">
           <span>Process</span>
           <span>{work.process}</span>
         </li>

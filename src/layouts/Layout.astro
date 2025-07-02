@@ -16,7 +16,7 @@ const description = propDescription ? propDescription : configDescription;
 <html
   lang="en"
   class="bg-white text-black dark:bg-black dark:text-white overflow-y-scroll 2xl:text-lg"
-  transition:animate="none"
+  transition:animate="fade"
 >
 	<head>
 		<meta charset="UTF-8" />
@@ -32,7 +32,7 @@ const description = propDescription ? propDescription : configDescription;
 		<div class="max-w-8xl m-auto">
 			<Header title={configTitle} />
 
-			<main transition:animate="fade">
+			<main>
 				<slot />
 			</main>
 
