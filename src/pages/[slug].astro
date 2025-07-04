@@ -20,7 +20,7 @@ const page = await sanityClient.fetch(
 ---
 
 <Layout title=`${page.title}`>
-  <div class="pt-48 pb-12">
+  <div class="mt-48 min-h-16 md:min-h-12 mb-6">
     {page.title}
   </div>
   <BlockContent value={page.body} />

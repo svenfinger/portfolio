@@ -3,20 +3,21 @@ import { sanityClient } from 'sanity:client';
 import { urlFor } from '../lib/sanityImage'
 import { Image } from 'astro:assets'
 import Layout from '../layouts/Layout.astro';
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 const works = await sanityClient.fetch(`*[_type == "work" && defined(slug.current)] | order(publishedAt desc)`);
 ---
 
 <Layout title="Work">
-  <div class="pt-48 pb-12">
+  <div class="mt-48 min-h-16 md:min-h-12 mb-6">
     Work
   </div>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-12 pb-48">
-    {works.map((work) => (
+    {works.map((work: { slug: { current: any; }; image: SanityImageSource; title: string; subline: string; }) => (
       <a href={`/work/${work.slug.current}`}>
         <Image
           src={urlFor(work.image).width(2880).url()}
-          alt={work.image.alt || ''}
+          alt={''}
           inferSize={true}
           class="mb-3"
           format="auto"
