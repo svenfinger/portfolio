@@ -6,7 +6,6 @@ import { resolveWorkRefs } from '../../lib/resolveWorkRefs';
 const { node } = Astro.props;
 const works = await resolveWorkRefs(node.works);
 ---
-
 <section class="pb-48 pt-12 min-h-section border-t border-gray-200 dark:border-gray-800">
   <div class="pb-6">
     {node.title}

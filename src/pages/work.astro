@@ -2,12 +2,11 @@
 import { sanityClient } from 'sanity:client';
 import { urlFor } from '../lib/sanityImage'
 import { Image } from 'astro:assets'
-import Layout from '../layouts/Layout.astro';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import Layout from '../layouts/Layout.astro';
 
 const works = await sanityClient.fetch(`*[_type == "work" && defined(slug.current)] | order(publishedAt desc)`);
 ---
-
 <Layout title="Work">
   <div class="mt-48 min-h-16 md:min-h-12 mb-6">
     Work
@@ -29,5 +28,4 @@ const works = await sanityClient.fetch(`*[_type == "work" && defined(slug.curren
       </a>
     ))}
   </div>
-
 </Layout>

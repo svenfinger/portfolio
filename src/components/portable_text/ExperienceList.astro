@@ -13,7 +13,6 @@ const { node } = Astro.props;
 const items = node.experiences || [];
 const link = node.link;
 ---
-
 <ul class="divide-y divide-gray-200 dark:divide-gray-800 space-y-6">
   {items.map((item: ExperienceList) => (
     <li class="pb-6 grid grid-cols-2 sm:grid-cols-3 gap-6">

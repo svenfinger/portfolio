@@ -16,11 +16,10 @@ export async function getStaticPaths() {
 const { slug } = Astro.params
 
 const work = await sanityClient.fetch(
-  `*[_type == "work" && slug.current == $slug && isHome != true][0]{...}`,
+  `*[_type == "work" && slug.current == $slug][0]{...}`,
   { slug }
 )
 ---
-
 <Layout title=`${work.title}` description=`${work.subline}`>
   <div class="mt-48 min-h-16 md:min-h-12 mb-6">
     {work.title}

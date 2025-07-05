@@ -12,4 +12,5 @@ export const sanity = createClient({
   projectId: process.env.SANITY_STUDIO_PROJECT_ID,
   dataset: process.env.SANITY_STUDIO_DATASET,
   useCdn: false,
+  apiVersion: '2025-07-05',
 });

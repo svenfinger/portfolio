@@ -16,7 +16,6 @@ interface List {
 const { node } = Astro.props;
 const items = node.items || [];
 ---
-
 <ul class="divide-y divide-gray-200 dark:divide-gray-800 space-y-6">
   {items.map((item: List) => (
     <li class="pb-6 grid grid-cols-2">

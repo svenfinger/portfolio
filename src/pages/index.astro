@@ -6,10 +6,7 @@ import BlockContent from '../components/BlockContent.astro';
 const page = await sanityClient.fetch(`*[_type == "page" && isHome == true][0] { body }`);
 
 const { body } = page;
-
-const works = await sanityClient.fetch(`*[_type == "work" && defined(slug.current)][0..1] | order(publishedAt desc)`);
 ---
-
 <Layout>
   <BlockContent value={body} />
 </Layout>

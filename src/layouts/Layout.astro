@@ -1,10 +1,10 @@
 ---
-import Head from '../components/Head.astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
 import '../styles/global.css'
 import { sanityClient } from 'sanity:client';
 import { ClientRouter } from "astro:transitions";
+import Head from '../components/Head.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
 
 const configuration = await sanityClient.fetch(`*[_type == "configuration"][0]`);
 const { title: propTitle, description: propDescription } = Astro.props;

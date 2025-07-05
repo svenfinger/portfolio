@@ -10,7 +10,6 @@ const showDivider = node.showDivider || false;
 const leftItems: BodyBlock[] = node.left || [];
 const rightItems: BodyBlock[] = node.right || [];
 ---
-
 <section class:list={[ 'sm:grid sm:grid-cols-2 gap-6 min-h-section pt-6 pb-48', { 'border-t border-gray-200 dark:border-gray-800': showDivider } ]}>
   <div class="flex flex-col gap-4 pt-6">
     {leftItems.map(item => (

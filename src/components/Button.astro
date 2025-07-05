@@ -1,69 +1,36 @@
-
 ---
 export interface Props {
   text: string;
   href?: string;
-  type?: "button" | "submit" | "reset";
-  variant?: "primary";
-  size?: "small" | "medium" | "large";
-  className?: string;
   target?: string;
   rel?: string;
-  onClick?: string;
 }
 
 const {
   text,
   href,
-  type = "button",
-  variant = "primary",
-  size = "medium",
-  className = "",
   target,
   rel,
-  onClick,
 } = Astro.props;
 
-// Base styles for all buttons
-const baseStyles = "inline-flex items-center justify-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
+const baseStyles = [
+  "inline-flex items-center justify-center rounded-full",
+  "transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2",
+  "px-4 py-2 gap-2",
+  "bg-blue-600 text-white",
+  "hover:bg-blue-700 hover:dark:bg-blue-500",
+  "focus:ring-blue-500"
+];
 
-// Variant-specific styles
-const variantStyles = {
-  primary: "bg-blue-600 text-white hover:bg-blue-700 hover:dark:bg-blue-500 focus:ring-blue-500",
-};
-
-// Size-specific styles
-const sizeStyles = {
-  small: "px-3 py-1.5 gap-2",
-  medium: "px-4 py-2 gap-2",
-  large: "px-6 py-3 gap-2"
-};
-
-const buttonClasses = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+const buttonClasses = baseStyles.join(" ");
 ---
-
-{
-  href ? (
-    <a 
-      href={href}
-      class={buttonClasses}
-      target={target}
-      rel={rel}
-      onclick={onClick}
-    >
-      <slot name="icon-left" />
-      {text}
-      <slot name="icon-right" />
-    </a>
-  ) : (
-    <button 
-      type={type} 
-      class={buttonClasses}
-      onclick={onClick}
-    >
-      <slot name="icon-left" />
-      {text}
-      <slot name="icon-right" />
-    </button>
-  )
-}
+<a
+  href={href}
+  class={buttonClasses}
+  target={target}
+  rel={rel}
+>
+  <slot name="icon-left" />
+  {text}
+  <slot name="icon-right" />
+</a>
