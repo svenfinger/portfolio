@@ -1,6 +1,5 @@
 ---
-import { urlFor } from '../../lib/sanityImage'
-import { Image } from 'astro:assets';
+import { urlFor } from '../../lib/sanityImage';
 import Media from '../Media.astro';
 
 const { node } = Astro.props;
@@ -14,13 +13,19 @@ const videoUrl = isVideo ? `https://cdn.sanity.io/files/${import.meta.env.SANITY
 <section class="pb-48">
   <Media>
     {isImage && (
-      <Image
-        src={urlFor(image).width(2880).url()}
+      <img
+        src={urlFor(image).width(800).format('webp').url()}
+        srcset={`
+          ${urlFor(image).width(800).format('webp').url()} 800w,
+          ${urlFor(image).width(1600).format('webp').url()} 1600w,
+          ${urlFor(image).width(2784).format('webp').url()} 2784w
+        `}
+        sizes="(max-width: 1440px) 100vw, 1392px"
         alt={image.alt || ''}
-        inferSize={true}
-        format="auto"
         loading="lazy"
+        decoding="async"
         slot="media"
+        class="w-full h-auto"
       />
     )}
     {isVideo && (

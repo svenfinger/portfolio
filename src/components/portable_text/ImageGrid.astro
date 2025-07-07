@@ -1,6 +1,5 @@
 ---
-import { urlFor } from '../../lib/sanityImage'
-import { Image } from 'astro:assets';
+import { urlFor } from '../../lib/sanityImage';
 
 const { node } = Astro.props;
 const images = node.images;
@@ -13,15 +12,19 @@ type SanityImageWithAlt = {
   alt?: string;
 };
 ---
-<section class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+<section class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
   {images.map((image: SanityImageWithAlt) => (
-    <Image
-      src={urlFor(image).width(684).url()}
+    <img
+      src={urlFor(image).width(330).format('webp').url()}
+      srcset={`
+        ${urlFor(image).width(330).format('webp').url()} 330w,
+        ${urlFor(image).width(660).format('webp').url()} 660w
+      `}
+      sizes="(max-width: 640px) 100vw, 330px"
       alt={image.alt || ''}
-      inferSize={true}
-      class="image-item"
-      format="auto"
-      loading="eager"
+      loading="lazy"
+      decoding="async"
+      class="image-item w-full h-auto"
     />
   ))}
 </section>

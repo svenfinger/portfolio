@@ -15,7 +15,7 @@ const description = propDescription ? propDescription : configDescription;
 <!doctype html>
 <html
   lang="en"
-  class="bg-white text-black dark:bg-black dark:text-white overflow-y-scroll 2xl:text-lg"
+  class="bg-white text-black dark:bg-black dark:text-white overflow-y-scroll"
   transition:animate="fade"
 >
 	<head>
@@ -28,8 +28,8 @@ const description = propDescription ? propDescription : configDescription;
 
     <ClientRouter />
 	</head>
-	<body class="px-4 sm:px-6 text-sm">
-		<div class="max-w-8xl m-auto">
+	<body class="text-sm 2xl:text-base">
+		<div class="max-w-8xl m-auto px-4 sm:px-6">
 			<Header title={configTitle} />
 
 			<main>
