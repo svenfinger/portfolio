@@ -1,5 +1,5 @@
 ---
-import { urlFor } from '../../lib/sanityImage';
+import { imageWithDefaults } from '../../lib/sanityImage';
 import { resolveWorkRefs } from '../../lib/resolveWorkRefs';
 
 const { node } = Astro.props;
@@ -13,20 +13,21 @@ const works = await resolveWorkRefs(node.works);
     {works.map((work) => (
       <a href={`/work/${work.slug.current}`}>
         <img
-          src={urlFor(work.image).width(684).format('webp').url()}
+          src={imageWithDefaults(work.image).width(684).url()}
           srcset={`
-            ${urlFor(work.image).width(684).format('webp').url()} 684w,
-            ${urlFor(work.image).width(1368).format('webp').url()} 1368w,
+            ${imageWithDefaults(work.image).width(684).url()} 1x,
+            ${imageWithDefaults(work.image).width(1368).url()} 2x
           `}
-          sizes="(max-width: 1440px) 100vw, 684px"
           alt={work.image.alt || ''}
           loading="lazy"
           decoding="async"
           slot="media"
           class="w-full h-auto mb-3"
+          width="684"
+          height="385"
         />
         {work.title}
-        <div class="text-gray-500">{work.subline}</div>
+        <div class="text-gray-500 dark:text-gray-400">{work.subline}</div>
       </a>
     ))}
   </div>

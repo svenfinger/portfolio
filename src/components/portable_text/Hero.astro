@@ -1,5 +1,5 @@
 ---
-import { urlFor } from '../../lib/sanityImage';
+import { imageWithDefaults } from '../../lib/sanityImage';
 import Media from '../Media.astro';
 
 const { node } = Astro.props;
@@ -7,22 +7,22 @@ const { node } = Astro.props;
 <div class="pb-48">
   <div class="mt-48 min-h-16 md:min-h-12 mb-6">
     {node.title}
-    <div class="text-gray-500">{node.subtitle}</div>
+    <div class="text-gray-500 dark:text-gray-400">{node.subtitle}</div>
   </div>
   <Media>
     <img
-      src={urlFor(node.image).width(800).format('webp').url()}
+      src={imageWithDefaults(node.image).width(1392).url()}
       srcset={`
-        ${urlFor(node.image).width(800).format('webp').url()} 800w,
-        ${urlFor(node.image).width(1600).format('webp').url()} 1600w,
-        ${urlFor(node.image).width(2784).format('webp').url()} 2784w
+        ${imageWithDefaults(node.image).width(1392).url()} 1x,
+        ${imageWithDefaults(node.image).width(2784).url()} 2x
       `}
-      sizes="(max-width: 1440px) 100vw, 1392px"
       alt={node.image.alt || ''}
-      loading="lazy"
+      loading="eager"
       decoding="async"
       slot="media"
       class="w-full h-auto"
+      width="1392"
+      height="783"
     />
   </Media>
 </div>

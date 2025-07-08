@@ -11,7 +11,7 @@ const page_home = await sanityClient.fetch(`*[_type == "page" && isHome == true]
 const { title } = Astro.props;
 
 const currentPath = Astro.url.pathname;
-const getNavClass = (isActive: boolean) => isActive ? "" : "text-gray-500";
+const getNavClass = (isActive: boolean) => isActive ? "" : "text-gray-500 dark:text-gray-400";
 ---
 <header class="grid sm:grid-cols-2 border-b-1 border-b-gray-200 dark:border-b-gray-800 py-5 gap-4 sm:gap-6">
   <div>

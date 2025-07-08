@@ -1,9 +1,8 @@
 ---
 import { sanityClient } from 'sanity:client';
-import { urlFor } from '../lib/sanityImage'
-import { Image } from 'astro:assets'
-import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { imageWithDefaults } from '../lib/sanityImage'
 import Layout from '../layouts/Layout.astro';
+import Media from '../components/Media.astro';
 
 const works = await sanityClient.fetch(`*[_type == "work" && defined(slug.current)] | order(publishedAt desc)`);
 ---
@@ -12,19 +11,27 @@ const works = await sanityClient.fetch(`*[_type == "work" && defined(slug.curren
     Work
   </div>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-12 pb-48">
-    {works.map((work: { slug: { current: any; }; image: SanityImageSource; title: string; subline: string; }) => (
+    {works.map((work) => (
       <a href={`/work/${work.slug.current}`}>
-        <Image
-          src={urlFor(work.image).width(2880).url()}
-          alt={''}
-          inferSize={true}
-          class="mb-3"
-          format="auto"
-          loading="eager"
-          style={`view-transition-name: ${work.slug.current};`}
-        />
+        <Media>
+          <img
+            src={imageWithDefaults(work.image).width(684).url()}
+            srcset={`
+              ${imageWithDefaults(work.image).width(684).url()} 1x,
+              ${imageWithDefaults(work.image).width(1368).url()} 2x
+            `}
+            alt={work.image.alt || ''}
+            loading="lazy"
+            decoding="async"
+            slot="media"
+            class="w-full h-auto mb-3"
+            width="684"
+            height="385"
+            style={`view-transition-name: ${work.slug.current};`}
+          />
+        </Media>
         {work.title}
-        <div class="text-gray-500">{work.subline}</div>
+        <div class="text-gray-500 dark:text-gray-400">{work.subline}</div>
       </a>
     ))}
   </div>
