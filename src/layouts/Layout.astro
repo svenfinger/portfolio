@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css'
 import { sanityClient } from 'sanity:client';
-import { ClientRouter } from "astro:transitions";
 import Head from '../components/Head.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
@@ -15,8 +14,7 @@ const description = propDescription ? propDescription : configDescription;
 <!doctype html>
 <html
   lang="en"
-  class="bg-white text-black dark:bg-black dark:text-white overflow-y-scroll"
-  transition:animate="fade"
+  class="bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300 overflow-y-scroll"
 >
 	<head>
 		<meta charset="UTF-8" />
@@ -25,14 +23,12 @@ const description = propDescription ? propDescription : configDescription;
 		<title>{title}</title>
 
 		<Head title={title} description={description} ogImage={ogImage} />
-
-    <ClientRouter />
 	</head>
 	<body class="text-sm 2xl:text-base">
-		<div class="max-w-8xl m-auto px-4 sm:px-6">
+		<div class="max-w-8xl m-auto px-4 sm:px-6 min-h-dvh flex flex-col">
 			<Header title={configTitle} />
 
-			<main>
+			<main class="flex-grow">
 				<slot />
 			</main>
 
