@@ -2,7 +2,7 @@ export async function GET({ site }) {
   const robots = `User-agent: *
 Allow: /
 
-Sitemap: ${site}/sitemap-index.xml`;
+Sitemap: ${site}sitemap-index.xml`;
 
   return new globalThis.Response(robots, {
     headers: {
