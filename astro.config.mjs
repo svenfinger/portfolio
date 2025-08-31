@@ -3,6 +3,7 @@ import 'dotenv/config';
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sanity from '@sanity/astro';
+import sitemap from '@astrojs/sitemap';
 import { execSync } from 'node:child_process';
 
 let commitHash = 'unknown';
@@ -26,6 +27,7 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
   },
+  site: process.env.PUBLIC_SITE,
 
   vite: {
     plugins: [tailwindcss()],
@@ -41,5 +43,6 @@ export default defineConfig({
       useCdn: false,
       apiVersion: '2025-07-05',
     }),
+    sitemap(),
   ],
 });
