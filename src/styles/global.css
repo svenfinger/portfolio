@@ -2,7 +2,7 @@
 
 @theme {
   --font-sans:
-    'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Inter', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
   --color-gray-50: oklch(0.985 0 0);

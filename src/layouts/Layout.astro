@@ -5,6 +5,8 @@ import Head from '../components/Head.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 
+import '@fontsource/inter'
+
 const configuration = await sanityClient.fetch(`*[_type == "configuration"][0]`);
 const { title: propTitle, description: propDescription } = Astro.props;
 const { title: configTitle, description: configDescription, ogImage } = configuration;
