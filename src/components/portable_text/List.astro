@@ -1,23 +1,16 @@
 ---
 import IconArrow from '../../assets/icons/arrow-up-right.svg'
+import type { List } from '../../lib/sanityTypes';
 
-interface List {
-  _type: string;
-  label: string;
-  valueType: 'text' | 'link';
-  textValue?: string;
-  linkValue?: {
-    text?: string;
-    url: string;
-    openInNewTab: boolean;
-  };
+interface Props {
+  node: List;
 }
 
 const { node } = Astro.props;
 const items = node.items || [];
 ---
 <ul class="divide-y divide-gray-200 dark:divide-gray-800 space-y-6">
-  {items.map((item: List) => (
+  {items.map((item) => (
     <li class="pb-6 grid grid-cols-2">
       <span>{item.label}</span>
       {item.valueType === 'text' && (

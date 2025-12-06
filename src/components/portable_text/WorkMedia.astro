@@ -1,6 +1,11 @@
 ---
 import Media from '../Media.astro';
 import { imageWithDefaults } from '../../lib/sanityImage';
+import type { WorkMedia } from '../../lib/sanityTypes';
+
+interface Props {
+  node: WorkMedia;
+}
 
 const { node } = Astro.props;
 const image = node.image;
@@ -8,7 +13,7 @@ const video = node.video;
 
 const isImage = !!image;
 const isVideo = !!video;
-const videoUrl = isVideo ? `https://cdn.sanity.io/files/${import.meta.env.SANITY_STUDIO_PROJECT_ID}/${import.meta.env.SANITY_STUDIO_DATASET}/${video.asset._ref.replace('file-', '').replace(/-/g, '.').replace('.mp4.', '.mp4')}` : null;
+const videoUrl = isVideo && video.asset ? `https://cdn.sanity.io/files/${import.meta.env.SANITY_STUDIO_PROJECT_ID}/${import.meta.env.SANITY_STUDIO_DATASET}/${video.asset._ref.replace('file-', '').replace(/-/g, '.').replace('.mp4.', '.mp4')}` : null;
 ---
 <section class="pb-48">
   <Media>

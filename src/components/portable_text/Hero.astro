@@ -1,6 +1,11 @@
 ---
 import { imageWithDefaults } from '../../lib/sanityImage';
 import Media from '../Media.astro';
+import type { Hero } from '../../lib/sanityTypes';
+
+interface Props {
+  node: Hero;
+}
 
 const { node } = Astro.props;
 ---

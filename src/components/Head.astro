@@ -1,6 +1,17 @@
 ---
 import { urlFor } from '../lib/sanityImage'
 
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: {
+    asset?: {
+      _ref: string;
+      _type: 'reference';
+    };
+  };
+}
+
 const { title, description, ogImage } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, import.meta.env.PUBLIC_SITE);
 ---
@@ -11,10 +22,9 @@ const canonicalURL = new URL(Astro.url.pathname, import.meta.env.PUBLIC_SITE);
 <meta property="og:title" content={title} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonicalURL} />
-<meta property="og:image" content={urlFor(ogImage).width(1120).url()}>
+{ogImage && <meta property="og:image" content={urlFor(ogImage).width(1120).url()} />}
 
 <link rel="canonical" href={canonicalURL} />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="icon" href="/favicon.png" type="image/png" sizes="96x96" />
 <link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">

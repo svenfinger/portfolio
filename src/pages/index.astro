@@ -2,8 +2,9 @@
 import { sanityClient } from 'sanity:client';
 import Layout from '../layouts/Layout.astro';
 import BlockContent from '../components/BlockContent.astro';
+import type { Page } from '../lib/sanityTypes';
 
-const page = await sanityClient.fetch(`*[_type == "page" && isHome == true][0] { body }`);
+const page = await sanityClient.fetch<Page>(`*[_type == "page" && isHome == true][0] { body }`);
 
 const { body } = page;
 ---

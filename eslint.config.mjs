@@ -31,7 +31,7 @@ export default [
     },
   },
   {
-    ignores: ['.astro/**/*'],
+    ignores: ['.astro/**/*', 'dist/**/*', 'node_modules/**/*'],
   },
   {
     ignores: ['**/*.astro'],

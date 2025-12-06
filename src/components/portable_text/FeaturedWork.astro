@@ -1,9 +1,14 @@
 ---
 import { imageWithDefaults } from '../../lib/sanityImage';
 import { resolveWorkRefs } from '../../lib/resolveWorkRefs';
+import type { FeaturedWork } from '../../lib/sanityTypes';
+
+interface Props {
+  node: FeaturedWork;
+}
 
 const { node } = Astro.props;
-const works = await resolveWorkRefs(node.works);
+const works = await resolveWorkRefs(node.works || []);
 ---
 <section class="min-h-section">
   <div class="pb-6">

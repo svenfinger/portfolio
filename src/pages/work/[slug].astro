@@ -5,18 +5,19 @@ import { imageWithDefaults } from '../../lib/sanityImage'
 import { Image } from 'astro:assets'
 import Layout from '../../layouts/Layout.astro'
 import BlockContent from '../../components/BlockContent.astro'
+import type { Work } from '../../lib/sanityTypes'
 
 export async function getStaticPaths() {
-  const works = await sanityClient.fetch(`*[_type == "work" && defined(slug.current)]`);
+  const works = await sanityClient.fetch<Work[]>(`*[_type == "work" && defined(slug.current)]`);
 
-  return works.map((work: any) => ({
-    params: { slug: work.slug.current },
+  return works.map((work) => ({
+    params: { slug: work.slug?.current },
   }))
 }
 
 const { slug } = Astro.params
 
-const work = await sanityClient.fetch(
+const work = await sanityClient.fetch<Work>(
   `*[_type == "work" && slug.current == $slug][0]{...}`,
   { slug }
 )

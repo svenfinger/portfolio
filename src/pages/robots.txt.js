@@ -6,7 +6,7 @@ Sitemap: ${site}sitemap-index.xml`;
 
   return new globalThis.Response(robots, {
     headers: {
-      'Content-Type': 'text/plain'
-    }
+      'Content-Type': 'text/plain',
+    },
   });
 }

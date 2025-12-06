@@ -4,10 +4,16 @@ import { sanityClient } from 'sanity:client';
 import Head from '../components/Head.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import type { Configuration } from '../lib/sanityTypes'
 
 import '@fontsource/inter'
 
-const configuration = await sanityClient.fetch(`*[_type == "configuration"][0]`);
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const configuration = await sanityClient.fetch<Configuration>(`*[_type == "configuration"][0]`);
 const { title: propTitle, description: propDescription } = Astro.props;
 const { title: configTitle, description: configDescription, ogImage } = configuration;
 const title = propTitle ? `${propTitle} | ${configTitle}` : configTitle;

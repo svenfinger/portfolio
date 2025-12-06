@@ -1,12 +1,17 @@
 ---
 import { sanityClient } from "sanity:client"
+import type { Page } from "../lib/sanityTypes"
 
-const pages = await sanityClient.fetch(`*[_type == "page" && showInMenu == true && isHome != true] | order(orderRank asc) {
+const pages = await sanityClient.fetch<Page[]>(`*[_type == "page" && showInMenu == true && isHome != true] | order(orderRank asc) {
   title,
   slug
 }`)
 
-const page_home = await sanityClient.fetch(`*[_type == "page" && isHome == true][0] { title }`)
+const page_home = await sanityClient.fetch<Page>(`*[_type == "page" && isHome == true][0] { title }`)
+
+interface Props {
+  title: string;
+}
 
 const { title } = Astro.props;
 
@@ -26,10 +31,10 @@ const getNavClass = (isActive: boolean) => isActive ? "" : "text-gray-500 dark:t
       href="/work"
       class={getNavClass(currentPath.startsWith("/work"))}
     >Work</a>
-    {pages.map((page: typeof pages[number]) => (
+    {pages.map((page) => (
       <a
-        href={`/${page.slug.current}`}
-        class={getNavClass(currentPath === `/${page.slug.current}`)}
+        href={`/${page.slug?.current}`}
+        class={getNavClass(currentPath === `/${page.slug?.current}`)}
       >{page.title}</a>
     ))}
   </nav>

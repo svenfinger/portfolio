@@ -1,29 +1,26 @@
 ---
 import Media from '../Media.astro';
 import { imageWithDefaults } from '../../lib/sanityImage'
+import type { WorkMediaGrid } from '../../lib/sanityTypes';
+
+interface Props {
+  node: WorkMediaGrid;
+}
 
 const { node } = Astro.props;
-const mediaItems = node.mediaItems;
-
-type SanityMediaWithAlt = {
-  asset: {
-    _ref: string;
-    _type: 'reference';
-  };
-  alt?: string;
-};
+const mediaItems = node.mediaItems || [];
 ---
 <section class="pb-48">
   <div class="grid sm:grid-cols-2 gap-6">
-    {mediaItems.map((image: SanityMediaWithAlt) => (
+    {mediaItems.map((item) => (
       <Media>
         <img
-          src={imageWithDefaults(image).width(684).url()}
+          src={imageWithDefaults(item).width(684).url()}
           srcset={`
-            ${imageWithDefaults(image).width(684).url()} 1x,
-            ${imageWithDefaults(image).width(1368).url()} 2x
+            ${imageWithDefaults(item).width(684).url()} 1x,
+            ${imageWithDefaults(item).width(1368).url()} 2x
           `}
-          alt={image.alt || ''}
+          alt={item.alt || ''}
           loading="lazy"
           decoding="async"
           slot="media"

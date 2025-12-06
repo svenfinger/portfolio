@@ -1,16 +1,21 @@
 ---
 import { sanityClient } from "sanity:client"
 import IconGitHub from "../assets/icons/github.svg"
+import type { Page } from "../lib/sanityTypes"
 
-const pages = await sanityClient.fetch(`*[_type == "page" && showInFooter == true] | order(orderRank asc)`)
+const pages = await sanityClient.fetch<Page[]>(`*[_type == "page" && showInFooter == true] | order(orderRank asc)`)
+
+interface Props {
+  title: string;
+}
 
 const { title } = Astro.props;
 ---
 <footer class="grid grid-cols-2 py-5 gap-6">
   <nav class="flex flex-col sm:flex-row gap-3 sm:gap-6">
     <span>© {title}</span>
-    {pages.map((page: typeof pages[number]) => (
-        <a href={`/${page.slug.current}`}>{page.title}</a>
+    {pages.map((page) => (
+        <a href={`/${page.slug?.current}`}>{page.title}</a>
     ))}
   </nav>
   <div class="flex flex-col sm:flex-row gap-3 sm:gap-6">

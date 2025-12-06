@@ -1,32 +1,32 @@
 ---
 import { PortableText } from "astro-portabletext";
-import type { BodyBlock } from "../../lib/sanityTypes";
+import type { TwoColumn } from "../../lib/sanityTypes";
 import List from "./List.astro";
 import ExperienceList from "./ExperienceList.astro";
+
+interface Props {
+  node: TwoColumn;
+}
 
 const { node } = Astro.props;
 
 const showDivider = node.showDivider || false;
-const leftItems: BodyBlock[] = node.left || [];
-const rightItems: BodyBlock[] = node.right || [];
+const leftItems = node.left || [];
+const rightItems = node.right || [];
+
+// Define components for custom block types
+const components = {
+  type: {
+    list: List,
+    experienceList: ExperienceList,
+  }
+};
 ---
 <section class:list={[ 'sm:grid sm:grid-cols-2 gap-6 min-h-section pt-6 pb-48', { 'border-t border-gray-200 dark:border-gray-800': showDivider } ]}>
   <div class="flex flex-col gap-4 pt-6">
-    {leftItems.map(item => (
-      <PortableText value={item.body} />
-    ))}
+    <PortableText value={leftItems} components={components} />
   </div>
   <div class="flex flex-col gap-4 py-6">
-    {rightItems.map(item => {
-      if (item._type === 'list') {
-        return <List node={item} />;
-      }
-
-      if (item._type === 'experienceList') {
-        return <ExperienceList node={item} />;
-      }
-
-      return <PortableText value={item.body} />;
-    })}
+    <PortableText value={rightItems} components={components} />
   </div>
 </section>

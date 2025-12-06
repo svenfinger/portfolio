@@ -1,20 +1,17 @@
 ---
 import Media from '../Media.astro';
 import { imageWithDefaults } from '../../lib/sanityImage';
+import type { ImageGrid } from '../../lib/sanityTypes';
+
+interface Props {
+  node: ImageGrid;
+}
 
 const { node } = Astro.props;
-const images = node.images;
-
-type SanityImageWithAlt = {
-  asset: {
-    _ref: string;
-    _type: 'reference';
-  };
-  alt?: string;
-};
+const images = node.images || [];
 ---
 <section class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
-  {images.map((image: SanityImageWithAlt) => (
+  {images.map((image) => (
     <Media>
       <img
         src={imageWithDefaults(image).width(330).url()}

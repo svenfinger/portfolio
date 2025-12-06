@@ -1,6 +1,5 @@
 ---
 import { PortableText } from 'astro-portabletext'
-import Body from './portable_text/Body.astro'
 import Hero from './portable_text/Hero.astro'
 import TwoColumn from './portable_text/TwoColumn.astro'
 import ImageGrid from './portable_text/ImageGrid.astro'
@@ -15,7 +14,6 @@ const { value } = Astro.props
 const components = {
   type: {
     hero: Hero,
-    body: Body,
     twoColumn: TwoColumn,
     imageGrid: ImageGrid,
     list: List,

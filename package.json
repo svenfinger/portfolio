@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "fetch-types": "curl -fsSL https://raw.githubusercontent.com/svenfinger/portfolio-studio/main/sanity.types.ts -o src/lib/sanityTypes.ts",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint . --fix",

@@ -30,6 +30,7 @@ export default defineConfig({
   site: process.env.PUBLIC_SITE,
 
   vite: {
+    // @ts-expect-error - Vite plugin type mismatch between @tailwindcss/vite and Astro's bundled Vite
     plugins: [tailwindcss()],
     define: {
       'import.meta.env.PUBLIC_COMMIT_HASH': JSON.stringify(commitHash),
