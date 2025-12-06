@@ -28,23 +28,25 @@ const work = await sanityClient.fetch<Work>(
     <div class="text-gray-500 dark:text-gray-400">{work.subline}</div>
   </div>
   <div class="pb-48">
-    <Media>
-      <img
-        src={imageWithDefaults(work.image).width(1392).url()}
-        srcset={`
-          ${imageWithDefaults(work.image).width(1392).url()} 1x,
-          ${imageWithDefaults(work.image).width(2784).url()} 2x
-        `}
-        alt={work.image.alt || ''}
-        loading="eager"
-        decoding="async"
-        slot="media"
-        class="w-full h-auto"
-        width="1392"
-        height="783"
-        style={`view-transition-name: ${work.slug.current};`}
-      />
-    </Media>
+    {work.image && (
+      <Media>
+        <img
+          src={imageWithDefaults(work.image).width(1392).url()}
+          srcset={`
+            ${imageWithDefaults(work.image).width(1392).url()} 1x,
+            ${imageWithDefaults(work.image).width(2784).url()} 2x
+          `}
+          alt={work.title || ''}
+          loading="eager"
+          decoding="async"
+          slot="media"
+          class="w-full h-auto"
+          width="1392"
+          height="783"
+          style={`view-transition-name: ${work.slug?.current};`}
+        />
+      </Media>
+    )}
   </div>
   <section class:list={[ 'sm:grid sm:grid-cols-2 gap-6 min-h-section pt-6 pb-48' ]}>
     <div class="flex flex-col gap-4 pt-6">

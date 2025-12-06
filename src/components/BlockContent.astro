@@ -9,6 +9,10 @@ import WorkMedia from './portable_text/WorkMedia.astro'
 import WorkMediaGrid from './portable_text/WorkMediaGrid.astro'
 import FeaturedWork from './portable_text/FeaturedWork.astro'
 
+interface Props {
+  value?: any;
+}
+
 const { value } = Astro.props
 
 const components = {

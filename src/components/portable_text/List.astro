@@ -16,7 +16,7 @@ const items = node.items || [];
       {item.valueType === 'text' && (
         <span>{item.textValue}</span>
       )}
-      {item.valueType === 'link' && item.linkValue && (
+      {item.valueType === 'link' && item.linkValue?.url && (
         <>
           {item.linkValue.url.startsWith('mailto:') ? (
             <a

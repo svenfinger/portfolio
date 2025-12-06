@@ -24,7 +24,7 @@ const videoUrl = isVideo && video.asset ? `https://cdn.sanity.io/files/${import.
           ${imageWithDefaults(image).width(1392).url()} 1x,
           ${imageWithDefaults(image).width(2784).url()} 2x
         `}
-        alt={image.alt || ''}
+        alt={node.text || ''}
         loading="lazy"
         decoding="async"
         slot="media"

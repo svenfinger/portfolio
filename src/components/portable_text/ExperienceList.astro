@@ -24,7 +24,7 @@ const link = node.link;
 </ul>
 
 {
-  link && (
+  link && link.url && link.text && (
     <div>
       <Button
         href={link.url}

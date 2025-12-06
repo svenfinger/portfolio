@@ -14,20 +14,22 @@ const { node } = Astro.props;
     {node.title}
     <div class="text-gray-500 dark:text-gray-400">{node.subtitle}</div>
   </div>
-  <Media>
-    <img
-      src={imageWithDefaults(node.image).width(1392).url()}
-      srcset={`
-        ${imageWithDefaults(node.image).width(1392).url()} 1x,
-        ${imageWithDefaults(node.image).width(2784).url()} 2x
-      `}
-      alt={node.image.alt || ''}
-      loading="eager"
-      decoding="async"
-      slot="media"
-      class="w-full h-auto"
-      width="1392"
-      height="783"
-    />
-  </Media>
+  {node.image && (
+    <Media>
+      <img
+        src={imageWithDefaults(node.image).width(1392).url()}
+        srcset={`
+          ${imageWithDefaults(node.image).width(1392).url()} 1x,
+          ${imageWithDefaults(node.image).width(2784).url()} 2x
+        `}
+        alt={node.title || ''}
+        loading="eager"
+        decoding="async"
+        slot="media"
+        class="w-full h-auto"
+        width="1392"
+        height="783"
+      />
+    </Media>
+  )}
 </div>

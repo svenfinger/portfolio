@@ -13,27 +13,29 @@ const works = await sanityClient.fetch<Work[]>(`*[_type == "work" && defined(slu
   </div>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-12 pb-48">
     {works.map((work) => (
-      <a href={`/work/${work.slug.current}`}>
-        <Media>
-          <img
-            src={imageWithDefaults(work.image).width(684).url()}
-            srcset={`
-              ${imageWithDefaults(work.image).width(684).url()} 1x,
-              ${imageWithDefaults(work.image).width(1368).url()} 2x
-            `}
-            alt={work.image.alt || ''}
-            loading="lazy"
-            decoding="async"
-            slot="media"
-            class="w-full h-auto"
-            width="684"
-            height="385"
-            style={`view-transition-name: ${work.slug.current};`}
-          />
-        </Media>
-        <div class="mt-3">{work.title}</div>
-        <div class="text-gray-500 dark:text-gray-400">{work.subline}</div>
-      </a>
+      work.image && work.slug?.current && (
+        <a href={`/work/${work.slug.current}`}>
+          <Media>
+            <img
+              src={imageWithDefaults(work.image).width(684).url()}
+              srcset={`
+                ${imageWithDefaults(work.image).width(684).url()} 1x,
+                ${imageWithDefaults(work.image).width(1368).url()} 2x
+              `}
+              alt={work.title || ''}
+              loading="lazy"
+              decoding="async"
+              slot="media"
+              class="w-full h-auto"
+              width="684"
+              height="385"
+              style={`view-transition-name: ${work.slug.current};`}
+            />
+          </Media>
+          <div class="mt-3">{work.title}</div>
+          <div class="text-gray-500 dark:text-gray-400">{work.subline}</div>
+        </a>
+      )
     ))}
   </div>
 </Layout>
