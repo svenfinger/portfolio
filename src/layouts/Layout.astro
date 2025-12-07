@@ -1,12 +1,10 @@
 ---
-import '../styles/global.css'
+import '../styles/global.css';
 import { sanityClient } from 'sanity:client';
-import Head from '../components/Head.astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
-import type { Configuration } from '../lib/sanityTypes'
-
-import '@fontsource/inter'
+import Head from '../components/Head.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { Configuration } from '../lib/sanityTypes';
 
 interface Props {
   title?: string;
@@ -16,31 +14,31 @@ interface Props {
 const configuration = await sanityClient.fetch<Configuration>(`*[_type == "configuration"][0]`);
 const { title: propTitle, description: propDescription } = Astro.props;
 const { title: configTitle, description: configDescription, ogImage } = configuration;
-const title = propTitle ? `${propTitle} | ${configTitle || 'Portfolio'}` : (configTitle || 'Portfolio');
+const title = propTitle
+  ? `${propTitle} | ${configTitle || 'Portfolio'}`
+  : configTitle || 'Portfolio';
 const description = propDescription || configDescription || '';
 ---
+
 <!doctype html>
-<html
-  lang="en"
-  class="bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300 overflow-y-scroll"
->
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+<html lang="en" class="bg-background text-foreground-primary">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
 
-		<title>{title}</title>
+    <title>{title}</title>
 
-		<Head title={title} description={description} ogImage={ogImage} />
-	</head>
-	<body class="text-sm 2xl:text-base">
-		<div class="max-w-8xl m-auto px-4 sm:px-6 min-h-dvh flex flex-col">
-			<Header title={configTitle || 'Portfolio'} />
+    <Head title={title} description={description} ogImage={ogImage} />
+  </head>
+  <body class="text-base px-4 sm:px-6">
+    <div class="max-w-8xl m-auto">
+      <Header title={configTitle || 'Portfolio'} />
 
-			<main class="grow">
-				<slot />
-			</main>
+      <main>
+        <slot />
+      </main>
 
-			<Footer title={configTitle || 'Portfolio'} />
-		</div>
-	</body>
+      <Footer title={configTitle || 'Portfolio'} />
+    </div>
+  </body>
 </html>

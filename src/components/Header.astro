@@ -1,13 +1,17 @@
 ---
-import { sanityClient } from "sanity:client"
-import type { Page } from "../lib/sanityTypes"
+import { sanityClient } from 'sanity:client';
+import type { Page } from '../lib/sanityTypes';
 
-const pages = await sanityClient.fetch<Page[]>(`*[_type == "page" && showInMenu == true && isHome != true] | order(orderRank asc) {
+const pages = await sanityClient.fetch<
+  Page[]
+>(`*[_type == "page" && showInMenu == true && isHome != true] | order(orderRank asc) {
   title,
   slug
-}`)
+}`);
 
-const page_home = await sanityClient.fetch<Page>(`*[_type == "page" && isHome == true][0] { title }`)
+const page_home = await sanityClient.fetch<Page>(
+  `*[_type == "page" && isHome == true][0] { title }`
+);
 
 interface Props {
   title: string;
@@ -16,26 +20,25 @@ interface Props {
 const { title } = Astro.props;
 
 const currentPath = Astro.url.pathname;
-const getNavClass = (isActive: boolean) => isActive ? "" : "text-gray-500 dark:text-gray-400";
+const getNavClass = (isActive: boolean) => (isActive ? '' : 'text-gray-500 dark:text-gray-400');
 ---
-<header class="grid sm:grid-cols-2 py-5 gap-4 sm:gap-6">
+
+<header class="text-sm grid sm:grid-cols-2 py-5 gap-4 sm:gap-6">
   <div>
     <a href="/">{title}</a>
   </div>
   <nav class="grid grid-cols-4 sm:flex gap-4 sm:gap-6">
-    <a
-      href="/"
-      class={getNavClass(currentPath === "/")}
-    >{page_home.title}</a>
-    <a
-      href="/work"
-      class={getNavClass(currentPath.startsWith("/work"))}
-    >Work</a>
-    {pages.map((page) => (
-      <a
-        href={`/${page.slug?.current}`}
-        class={getNavClass(currentPath === `/${page.slug?.current}`)}
-      >{page.title}</a>
-    ))}
+    <a href="/" class={getNavClass(currentPath === '/')}>{page_home.title}</a>
+    <a href="/work" class={getNavClass(currentPath.startsWith('/work'))}>Work</a>
+    {
+      pages.map((page) => (
+        <a
+          href={`/${page.slug?.current}`}
+          class={getNavClass(currentPath === `/${page.slug?.current}`)}
+        >
+          {page.title}
+        </a>
+      ))
+    }
   </nav>
 </header>

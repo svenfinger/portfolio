@@ -9,12 +9,13 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint . --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",
     "@eslint/js": "^9.39.1",
-    "@fontsource/inter": "^5.2.8",
     "@sanity/astro": "^3.2.10",
     "@sanity/client": "^7.13.1",
     "@sanity/image-url": "^2.0.1",
@@ -28,7 +29,23 @@
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^1.5.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
+    "prettier-plugin-astro": "^0.14.1",
     "typescript-eslint": "^8.48.1"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,astro,mjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,json,md}": [
+      "prettier --write"
+    ]
+  },
+  "overrides": {
+    "glob": "^11.0.0",
+    "prismjs": "^1.30.0"
   }
 }

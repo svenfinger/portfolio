@@ -1,19 +1,19 @@
 ---
-import { PortableText } from 'astro-portabletext'
-import Hero from './portable_text/Hero.astro'
-import TwoColumn from './portable_text/TwoColumn.astro'
-import ImageGrid from './portable_text/ImageGrid.astro'
-import List from './portable_text/List.astro'
-import ExperienceList from './portable_text/ExperienceList.astro'
-import WorkMedia from './portable_text/WorkMedia.astro'
-import WorkMediaGrid from './portable_text/WorkMediaGrid.astro'
-import FeaturedWork from './portable_text/FeaturedWork.astro'
+import { PortableText } from 'astro-portabletext';
+import Hero from './portable_text/Hero.astro';
+import TwoColumn from './portable_text/TwoColumn.astro';
+import ImageGrid from './portable_text/ImageGrid.astro';
+import List from './portable_text/List.astro';
+import ExperienceList from './portable_text/ExperienceList.astro';
+import WorkMedia from './portable_text/WorkMedia.astro';
+import WorkMediaGrid from './portable_text/WorkMediaGrid.astro';
+import FeaturedWork from './portable_text/FeaturedWork.astro';
 
 interface Props {
   value?: any;
 }
 
-const { value } = Astro.props
+const { value } = Astro.props;
 
 const components = {
   type: {
@@ -25,7 +25,8 @@ const components = {
     workMedia: WorkMedia,
     workMediaGrid: WorkMediaGrid,
     featuredWork: FeaturedWork,
-  }
-}
+  },
+};
 ---
+
 <PortableText value={value} components={components} />

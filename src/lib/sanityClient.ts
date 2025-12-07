@@ -19,7 +19,7 @@ export const sanity: SanityClient = createClient({
 // Typed query helper for better type safety
 export async function fetchSanity<T = AllSanitySchemaTypes>(
   query: string,
-  params?: Record<string, unknown>,
+  params?: Record<string, unknown>
 ): Promise<T> {
   return params ? sanity.fetch<T>(query, params) : sanity.fetch<T>(query);
 }

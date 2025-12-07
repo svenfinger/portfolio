@@ -1,5 +1,5 @@
 ---
-import IconArrow from '../../assets/icons/arrow-up-right.svg'
+import IconArrow from '../../assets/icons/arrow-up-right.svg';
 import type { List } from '../../lib/sanityTypes';
 
 interface Props {
@@ -9,40 +9,39 @@ interface Props {
 const { node } = Astro.props;
 const items = node.items || [];
 ---
-<ul class="divide-y divide-gray-200 dark:divide-gray-800 space-y-6">
-  {items.map((item) => (
-    <li class="pb-6 grid grid-cols-2">
-      <span>{item.label}</span>
-      {item.valueType === 'text' && (
-        <span>{item.textValue}</span>
-      )}
-      {item.valueType === 'link' && item.linkValue?.url && (
-        <>
-          {item.linkValue.url.startsWith('mailto:') ? (
-            <a
-              href={item.linkValue.url}
-              target={item.linkValue.openInNewTab ? "_blank" : undefined}
-              rel={item.linkValue.openInNewTab ? "noopener noreferrer" : undefined}
-              class="hover:underline"
-            >
-              {item.linkValue.text || item.linkValue.url.substring(7)}
-            </a>
-          ) : (
-            <a
-              href={item.linkValue.url}
-              target={item.linkValue.openInNewTab ? "_blank" : undefined}
-              rel={item.linkValue.openInNewTab ? "noopener noreferrer" : undefined}
-              class="flex gap-2 items-center hover:underline"
-            >
-              {item.linkValue.text || item.linkValue.url}
 
-              {item.linkValue.openInNewTab && (
-                <IconArrow class="size-3.5 text-gray-500" />
-              )}
-            </a>
-          )}
-        </>
-      )}
-    </li>
-  ))}
+<ul class="divide-y divide-gray-200 dark:divide-gray-800 space-y-6">
+  {
+    items.map((item) => (
+      <li class="pb-6 grid grid-cols-2">
+        <span>{item.label}</span>
+        {item.valueType === 'text' && <span>{item.textValue}</span>}
+        {item.valueType === 'link' && item.linkValue?.url && (
+          <>
+            {item.linkValue.url.startsWith('mailto:') ? (
+              <a
+                href={item.linkValue.url}
+                target={item.linkValue.openInNewTab ? '_blank' : undefined}
+                rel={item.linkValue.openInNewTab ? 'noopener noreferrer' : undefined}
+                class="hover:underline"
+              >
+                {item.linkValue.text || item.linkValue.url.substring(7)}
+              </a>
+            ) : (
+              <a
+                href={item.linkValue.url}
+                target={item.linkValue.openInNewTab ? '_blank' : undefined}
+                rel={item.linkValue.openInNewTab ? 'noopener noreferrer' : undefined}
+                class="flex gap-2 items-center hover:underline"
+              >
+                {item.linkValue.text || item.linkValue.url}
+
+                {item.linkValue.openInNewTab && <IconArrow class="size-3.5 text-gray-500" />}
+              </a>
+            )}
+          </>
+        )}
+      </li>
+    ))
+  }
 </ul>

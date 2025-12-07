@@ -6,30 +6,21 @@ export interface Props {
   rel?: string;
 }
 
-const {
-  text,
-  href,
-  target,
-  rel,
-} = Astro.props;
+const { text, href, target, rel } = Astro.props;
 
 const baseStyles = [
-  "inline-flex items-center justify-center rounded-full",
-  "transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2",
-  "px-4 py-2 gap-2",
-  "bg-blue-600 text-white",
-  "hover:bg-blue-700 hover:dark:bg-blue-500",
-  "focus:ring-blue-500"
+  'inline-flex items-center justify-center rounded-full',
+  'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
+  'px-4 py-2 gap-2',
+  'bg-blue-600 text-white',
+  'hover:bg-blue-700 hover:dark:bg-blue-500',
+  'focus:ring-blue-500',
 ];
 
-const buttonClasses = baseStyles.join(" ");
+const buttonClasses = baseStyles.join(' ');
 ---
-<a
-  href={href}
-  class={buttonClasses}
-  target={target}
-  rel={rel}
->
+
+<a href={href} class={buttonClasses} target={target} rel={rel}>
   <slot name="icon-left" />
   {text}
   <slot name="icon-right" />

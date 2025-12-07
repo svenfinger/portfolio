@@ -1,5 +1,5 @@
 ---
-import { urlFor } from '../lib/sanityImage'
+import { urlFor } from '../lib/sanityImage';
 
 interface Props {
   title: string;
@@ -15,8 +15,9 @@ interface Props {
 const { title, description, ogImage } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, import.meta.env.PUBLIC_SITE);
 ---
-<meta name="title" content={title}>
-<meta name="description" content={description}>
+
+<meta name="title" content={title} />
+<meta name="description" content={description} />
 <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 
 <meta property="og:title" content={title} />
@@ -25,6 +26,7 @@ const canonicalURL = new URL(Astro.url.pathname, import.meta.env.PUBLIC_SITE);
 {ogImage && <meta property="og:image" content={urlFor(ogImage).width(1120).url()} />}
 
 <link rel="canonical" href={canonicalURL} />
-<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
 <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+<link rel="stylesheet" href="https://use.typekit.net/dsj8lcl.css" />

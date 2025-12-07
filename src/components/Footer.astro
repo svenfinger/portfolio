@@ -1,9 +1,11 @@
 ---
-import { sanityClient } from "sanity:client"
-import IconGitHub from "../assets/icons/github.svg"
-import type { Page } from "../lib/sanityTypes"
+import { sanityClient } from 'sanity:client';
+import IconGitHub from '../assets/icons/github.svg';
+import type { Page } from '../lib/sanityTypes';
 
-const pages = await sanityClient.fetch<Page[]>(`*[_type == "page" && showInFooter == true] | order(orderRank asc)`)
+const pages = await sanityClient.fetch<Page[]>(
+  `*[_type == "page" && showInFooter == true] | order(orderRank asc)`
+);
 
 interface Props {
   title: string;
@@ -11,24 +13,30 @@ interface Props {
 
 const { title } = Astro.props;
 ---
-<footer class="grid grid-cols-2 py-5 gap-6">
+
+<footer class="text-sm grid grid-cols-2 py-5 gap-6">
   <nav class="flex flex-col sm:flex-row gap-3 sm:gap-6">
     <span>© {title}</span>
-    {pages.map((page) => (
-        <a href={`/${page.slug?.current}`}>{page.title}</a>
-    ))}
+    {pages.map((page) => <a href={`/${page.slug?.current}`}>{page.title}</a>)}
   </nav>
   <div class="flex flex-col sm:flex-row gap-3 sm:gap-6">
     <a href="https://www.linkedin.com/in/svenfinger/" target="_blank">LinkedIn</a>
     <a href="https://github.com/svenfinger" target="_blank">GitHub</a>
-    {import.meta.env.PUBLIC_COMMIT_HASH !== 'unknown' && (
-      <a
-        class="flex gap-2 items-center overflow-hidden"
-        href={`https://github.com/svenfinger/portfolio/commit/${import.meta.env.PUBLIC_COMMIT_HASH}`}
-      >
-        <IconGitHub class="size-4" />
-        <span class="truncate"><span class="hidden sm:inline">svenfinger/</span>portfolio<span class="text-gray-500 dark:text-gray-400">#{import.meta.env.PUBLIC_COMMIT_HASH}</span></span>
-      </a>
-    )}
+    {
+      import.meta.env.PUBLIC_COMMIT_HASH !== 'unknown' && (
+        <a
+          class="flex gap-2 items-center overflow-hidden"
+          href={`https://github.com/svenfinger/portfolio/commit/${import.meta.env.PUBLIC_COMMIT_HASH}`}
+        >
+          <IconGitHub class="size-4" />
+          <span class="truncate">
+            <span class="hidden sm:inline">svenfinger/</span>portfolio
+            <span class="text-gray-500 dark:text-gray-400">
+              #{import.meta.env.PUBLIC_COMMIT_HASH}
+            </span>
+          </span>
+        </a>
+      )
+    }
   </div>
 </footer>

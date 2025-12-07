@@ -31,7 +31,7 @@ export default [
     },
   },
   {
-    ignores: ['.astro/**/*', 'dist/**/*', 'node_modules/**/*'],
+    ignores: ['.astro/**/*', 'dist/**/*', 'node_modules/**/*', 'src/lib/sanityTypes.ts'],
   },
   {
     ignores: ['**/*.astro'],

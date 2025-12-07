@@ -1,24 +1,27 @@
 ---
-import { sanityClient } from 'sanity:client'
-import Layout from '../layouts/Layout.astro'
-import BlockContent from '../components/BlockContent.astro'
-import type { Page } from '../lib/sanityTypes'
+import { sanityClient } from 'sanity:client';
+import Layout from '../layouts/Layout.astro';
+import BlockContent from '../components/BlockContent.astro';
+import type { Page } from '../lib/sanityTypes';
 
 export async function getStaticPaths() {
-  const pages = await sanityClient.fetch<Page[]>(`*[_type == "page" && defined(slug.current) && isHome != true]`);
+  const pages = await sanityClient.fetch<Page[]>(
+    `*[_type == "page" && defined(slug.current) && isHome != true]`
+  );
 
   return pages.map((page) => ({
     params: { slug: page.slug?.current },
-  }))
+  }));
 }
 
-const { slug } = Astro.params
+const { slug } = Astro.params;
 
 const page = await sanityClient.fetch<Page>(
   `*[_type == "page" && slug.current == $slug && isHome != true][0]{title, body}`,
   { slug }
-)
+);
 ---
+
 <Layout title=`${page.title}`>
   <div class="mt-48 min-h-16 md:min-h-12 mb-6">
     {page.title}

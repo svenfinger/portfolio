@@ -10,32 +10,37 @@ interface Props {
 const { node } = Astro.props;
 const works = await resolveWorkRefs(node.works || []);
 ---
+
 <section class="min-h-section">
   <div class="pb-6">
     {node.title}
   </div>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-12">
-    {works.map((work) => (
-      work.image && work.slug?.current && (
-        <a href={`/work/${work.slug.current}`}>
-          <img
-            src={imageWithDefaults(work.image).width(684).url()}
-            srcset={`
+    {
+      works.map(
+        (work) =>
+          work.image &&
+          work.slug?.current && (
+            <a href={`/work/${work.slug.current}`}>
+              <img
+                src={imageWithDefaults(work.image).width(684).url()}
+                srcset={`
               ${imageWithDefaults(work.image).width(684).url()} 1x,
               ${imageWithDefaults(work.image).width(1368).url()} 2x
             `}
-            alt={work.title || ''}
-            loading="lazy"
-            decoding="async"
-            slot="media"
-            class="w-full h-auto mb-3 rounded-xs"
-            width="684"
-            height="385"
-          />
-          {work.title}
-          <div class="text-gray-500 dark:text-gray-400">{work.subline}</div>
-        </a>
+                alt={work.title || ''}
+                loading="lazy"
+                decoding="async"
+                slot="media"
+                class="w-full h-auto mb-3 rounded-sm"
+                width="684"
+                height="385"
+              />
+              {work.title}
+              <div class="text-gray-500 dark:text-gray-400">{work.subline}</div>
+            </a>
+          )
       )
-    ))}
+    }
   </div>
 </section>

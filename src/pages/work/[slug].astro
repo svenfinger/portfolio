@@ -1,56 +1,57 @@
 ---
 import Media from '../../components/Media.astro';
-import { sanityClient } from 'sanity:client'
-import { imageWithDefaults } from '../../lib/sanityImage'
-import { Image } from 'astro:assets'
-import Layout from '../../layouts/Layout.astro'
-import BlockContent from '../../components/BlockContent.astro'
-import type { Work } from '../../lib/sanityTypes'
+import { sanityClient } from 'sanity:client';
+import { imageWithDefaults } from '../../lib/sanityImage';
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import BlockContent from '../../components/BlockContent.astro';
+import type { Work } from '../../lib/sanityTypes';
 
 export async function getStaticPaths() {
   const works = await sanityClient.fetch<Work[]>(`*[_type == "work" && defined(slug.current)]`);
 
   return works.map((work) => ({
     params: { slug: work.slug?.current },
-  }))
+  }));
 }
 
-const { slug } = Astro.params
+const { slug } = Astro.params;
 
-const work = await sanityClient.fetch<Work>(
-  `*[_type == "work" && slug.current == $slug][0]{...}`,
-  { slug }
-)
+const work = await sanityClient.fetch<Work>(`*[_type == "work" && slug.current == $slug][0]{...}`, {
+  slug,
+});
 ---
+
 <Layout title=`${work.title}` description=`${work.subline}`>
   <div class="mt-48 min-h-16 md:min-h-12 mb-6">
     {work.title}
     <div class="text-gray-500 dark:text-gray-400">{work.subline}</div>
   </div>
   <div class="pb-48">
-    {work.image && (
-      <Media>
-        <img
-          src={imageWithDefaults(work.image).width(1392).url()}
-          srcset={`
+    {
+      work.image && (
+        <Media>
+          <img
+            src={imageWithDefaults(work.image).width(1392).url()}
+            srcset={`
             ${imageWithDefaults(work.image).width(1392).url()} 1x,
             ${imageWithDefaults(work.image).width(2784).url()} 2x
           `}
-          alt={work.title || ''}
-          loading="eager"
-          decoding="async"
-          slot="media"
-          class="w-full h-auto"
-          width="1392"
-          height="783"
-          style={`view-transition-name: ${work.slug?.current};`}
-        />
-      </Media>
-    )}
+            alt={work.title || ''}
+            loading="eager"
+            decoding="async"
+            slot="media"
+            class="w-full h-auto"
+            width="1392"
+            height="783"
+            style={`view-transition-name: ${work.slug?.current};`}
+          />
+        </Media>
+      )
+    }
   </div>
-  <section class:list={[ 'sm:grid sm:grid-cols-2 gap-6 min-h-section pt-6 pb-48' ]}>
-    <div class="flex flex-col gap-4 pt-6">
-    </div>
+  <section class:list={['sm:grid sm:grid-cols-2 gap-6 min-h-section pt-6 pb-48']}>
+    <div class="flex flex-col gap-4 pt-6"></div>
     <div class="flex flex-col gap-4 py-6 border-t border-gray-200 dark:border-gray-800">
       <ul class="divide-y divide-gray-200 dark:divide-gray-800 space-y-6">
         <li class="pb-6 grid grid-cols-2 gap-6">

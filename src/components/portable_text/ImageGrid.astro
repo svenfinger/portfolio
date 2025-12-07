@@ -10,23 +10,26 @@ interface Props {
 const { node } = Astro.props;
 const images = node.images || [];
 ---
+
 <section class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
-  {images.map((image) => (
-    <Media>
-      <img
-        src={imageWithDefaults(image).width(330).url()}
-        srcset={`
+  {
+    images.map((image) => (
+      <Media>
+        <img
+          src={imageWithDefaults(image).width(330).url()}
+          srcset={`
           ${imageWithDefaults(image).width(330).url()} 1x,
           ${imageWithDefaults(image).width(660).url()} 2x
         `}
-        alt={image.alt || ''}
-        loading="lazy"
-        decoding="async"
-        slot="media"
-        class="w-full h-auto"
-        width="330"
-        height="440"
-      />
-    </Media>
-  ))}
+          alt={image.alt || ''}
+          loading="lazy"
+          decoding="async"
+          slot="media"
+          class="w-full h-auto"
+          width="330"
+          height="440"
+        />
+      </Media>
+    ))
+  }
 </section>

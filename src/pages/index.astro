@@ -8,6 +8,7 @@ const page = await sanityClient.fetch<Page>(`*[_type == "page" && isHome == true
 
 const { body } = page;
 ---
+
 <Layout>
   <BlockContent value={body} />
 </Layout>

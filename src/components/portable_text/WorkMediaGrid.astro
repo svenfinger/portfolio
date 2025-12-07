@@ -1,6 +1,6 @@
 ---
 import Media from '../Media.astro';
-import { imageWithDefaults } from '../../lib/sanityImage'
+import { imageWithDefaults } from '../../lib/sanityImage';
 import type { WorkMediaGrid } from '../../lib/sanityTypes';
 
 interface Props {
@@ -10,30 +10,36 @@ interface Props {
 const { node } = Astro.props;
 const mediaItems = node.mediaItems || [];
 ---
+
 <section class="pb-48">
   <div class="grid sm:grid-cols-2 gap-6">
-    {mediaItems.map((item) => (
-      item._type === 'image' && (
-        <Media>
-          <img
-            src={imageWithDefaults(item).width(684).url()}
-            srcset={`
+    {
+      mediaItems.map(
+        (item) =>
+          item._type === 'image' && (
+            <Media>
+              <img
+                src={imageWithDefaults(item).width(684).url()}
+                srcset={`
               ${imageWithDefaults(item).width(684).url()} 1x,
               ${imageWithDefaults(item).width(1368).url()} 2x
             `}
-            alt={item.alt || ''}
-            loading="lazy"
-            decoding="async"
-            slot="media"
-            class="w-full h-auto"
-            width="684"
-            height="684"
-          />
-        </Media>
+                alt={item.alt || ''}
+                loading="lazy"
+                decoding="async"
+                slot="media"
+                class="w-full h-auto"
+                width="684"
+                height="684"
+              />
+            </Media>
+          )
       )
-    ))}
+    }
   </div>
-  <div class="grid sm:grid-cols-2 sm:gap-6 sm:mt-6 pt-6 sm:border-t border-gray-200 dark:border-gray-800">
+  <div
+    class="grid sm:grid-cols-2 sm:gap-6 sm:mt-6 pt-6 sm:border-t border-gray-200 dark:border-gray-800"
+  >
     <div></div>
     <p>{node.text}</p>
   </div>

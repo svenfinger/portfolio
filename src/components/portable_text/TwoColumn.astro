@@ -1,8 +1,8 @@
 ---
-import { PortableText } from "astro-portabletext";
-import type { TwoColumn } from "../../lib/sanityTypes";
-import List from "./List.astro";
-import ExperienceList from "./ExperienceList.astro";
+import { PortableText } from 'astro-portabletext';
+import type { TwoColumn } from '../../lib/sanityTypes';
+import List from './List.astro';
+import ExperienceList from './ExperienceList.astro';
 
 interface Props {
   node: TwoColumn;
@@ -19,10 +19,16 @@ const components = {
   type: {
     list: List,
     experienceList: ExperienceList,
-  }
+  },
 };
 ---
-<section class:list={[ 'sm:grid sm:grid-cols-2 gap-6 min-h-section pt-6 pb-48', { 'border-t border-gray-200 dark:border-gray-800': showDivider } ]}>
+
+<section
+  class:list={[
+    'sm:grid sm:grid-cols-2 gap-6 min-h-section pt-6 pb-48',
+    { 'border-t border-gray-200 dark:border-gray-800': showDivider },
+  ]}
+>
   <div class="flex flex-col gap-4 pt-6">
     <PortableText value={leftItems} components={components} />
   </div>
