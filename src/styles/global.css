@@ -6,14 +6,30 @@
   --foreground-primary: var(--color-gray-950);
   --foreground-secondary: var(--color-gray-600);
   --foreground-inverted: var(--color-gray-100);
+  --interactive-primary-default: var(--color-blue-700);
+  --interactive-primary-hover: var(--color-blue-800);
+  --interactive-secondary-default: var(--color-gray-700);
+  --interactive-secondary-hover: var(--color-gray-800);
+  --interactive-tertiary-default: var(--color-gray-400);
+  --interactive-tertiary-hover: var(--color-gray-200);
+  --border-default: var(--color-gray-400);
+  --border-subtle: var(--color-gray-300);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: var(--color-gray-900);
     --foreground-primary: var(--color-gray-200);
-    --foreground-secondary: var(--color-gray-300);
+    --foreground-secondary: var(--color-gray-400);
     --foreground-inverted: var(--color-gray-900);
+    --interactive-primary-default: var(--color-blue-500);
+    --interactive-primary-hover: var(--color-blue-600);
+    --interactive-secondary-default: var(--color-gray-300);
+    --interactive-secondary-hover: var(--color-gray-400);
+    --interactive-tertiary-default: var(--color-gray-800);
+    --interactive-tertiary-hover: var(--color-gray-950);
+    --border-default: var(--color-gray-600);
+    --border-subtle: var(--color-gray-700);
   }
 }
 
@@ -24,6 +40,16 @@
   --font-display:
     polymath-display, Helvetica, Arial, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --container-8xl: 90rem;
+  --section-height: 50.625rem;
+
+  --tracking-tightest: 0.16em;
+  --tracking-tighter: 0.08em;
+  --tracking-tight: 0.04em;
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.08em;
+  --tracking-widest: 0.16em;
 
   /* Use stone as gray */
   --color-gray-50: oklch(0.985 0.001 106.423);
@@ -43,9 +69,14 @@
   --color-foreground-primary: var(--foreground-primary);
   --color-foreground-secondary: var(--foreground-secondary);
   --color-foreground-inverted: var(--foreground-inverted);
-
-  --container-8xl: 90rem;
-  --section-height: 50.625rem;
+  --color-interactive-primary-default: var(--interactive-primary-default);
+  --color-interactive-primary-hover: var(--interactive-primary-hover);
+  --color-interactive-secondary-default: var(--interactive-secondary-default);
+  --color-interactive-secondary-hover: var(--interactive-secondary-hover);
+  --color-interactive-tertiary-default: var(--interactive-tertiary-default);
+  --color-interactive-tertiary-hover: var(--interactive-tertiary-hover);
+  --color-border-default: var(--border-default);
+  --color-border-subtle: var(--border-subtle);
 }
 
 @layer utilities {

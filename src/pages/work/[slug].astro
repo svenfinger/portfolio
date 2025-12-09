@@ -44,7 +44,6 @@ const work = await sanityClient.fetch<Work>(`*[_type == "work" && slug.current =
             class="w-full h-auto"
             width="1392"
             height="783"
-            style={`view-transition-name: ${work.slug?.current};`}
           />
         </Media>
       )

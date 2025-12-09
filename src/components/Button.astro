@@ -4,20 +4,27 @@ export interface Props {
   href?: string;
   target?: string;
   rel?: string;
+  variant: 'primary' | 'secondary' | 'tertiary';
 }
 
-const { text, href, target, rel } = Astro.props;
+const { text, href, target, rel, variant = 'primary' } = Astro.props;
 
 const baseStyles = [
-  'inline-flex items-center justify-center rounded-full',
-  'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
-  'px-4 py-2 gap-2',
-  'bg-blue-600 text-white',
-  'hover:bg-blue-700 hover:dark:bg-blue-500',
-  'focus:ring-blue-500',
+  'inline-flex items-center justify-center rounded-full text-sm',
+  'transition-colors duration-200',
+  'px-3 py-1 gap-2',
 ];
 
-const buttonClasses = baseStyles.join(' ');
+const variantStyles = {
+  primary: ['bg-interactive-primary-default text-white', 'hover:bg-interactive-primary-hover'],
+  secondary: [
+    'bg-interactive-secondary-default text-foreground-inverted',
+    'hover:bg-interactive-secondary-hover',
+  ],
+  tertiary: ['border border-border-subtle', 'hover:bg-interactive-tertiary-hover'],
+};
+
+const buttonClasses = [...baseStyles, ...variantStyles[variant]].join(' ');
 ---
 
 <a href={href} class={buttonClasses} target={target} rel={rel}>
