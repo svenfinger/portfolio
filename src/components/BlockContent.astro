@@ -8,6 +8,7 @@ import ExperienceList from './portable_text/ExperienceList.astro';
 import WorkMedia from './portable_text/WorkMedia.astro';
 import WorkMediaGrid from './portable_text/WorkMediaGrid.astro';
 import FeaturedWork from './portable_text/FeaturedWork.astro';
+import Link from './portable_text/Link.astro';
 
 interface Props {
   value?: any;
@@ -25,6 +26,9 @@ const components = {
     workMedia: WorkMedia,
     workMediaGrid: WorkMediaGrid,
     featuredWork: FeaturedWork,
+  },
+  mark: {
+    link: Link,
   },
 };
 ---

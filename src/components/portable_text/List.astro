@@ -1,5 +1,4 @@
 ---
-import IconArrow from '../../assets/icons/arrow-up-right.svg';
 import type { List } from '../../lib/sanityTypes';
 
 interface Props {
@@ -36,7 +35,7 @@ const items = node.items || [];
               >
                 {item.linkValue.text || item.linkValue.url}
 
-                {item.linkValue.openInNewTab && <IconArrow class="size-3.5 text-gray-500" />}
+                {item.linkValue.openInNewTab}
               </a>
             )}
           </>

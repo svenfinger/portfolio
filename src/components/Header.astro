@@ -55,7 +55,7 @@ const getNavClass = (isActive: boolean) =>
 
   <!-- Call to action -->
   <div class="hidden sm:flex justify-end items-center gap-2">
-    <Button text="Contact" href="/contact" variant="tertiary" />
+    <Button text="Socials" href="/socials" variant="tertiary" />
     <Button text="Contact" href="/contact" variant="secondary" />
   </div>
 
@@ -109,6 +109,13 @@ const getNavClass = (isActive: boolean) =>
         </a>
       ))
     }
+    <a
+      href="/socials"
+      class="nav-item opacity-0 text-gray-500 dark:text-gray-400"
+      style={`--delay: ${0.3 + pages.length * 0.1}s`}
+    >
+      Socials
+    </a>
     <a
       href="/contact"
       class="nav-item opacity-0 text-gray-500 dark:text-gray-400"

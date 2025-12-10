@@ -3,6 +3,7 @@ import { PortableText } from 'astro-portabletext';
 import type { TwoColumn } from '../../lib/sanityTypes';
 import List from './List.astro';
 import ExperienceList from './ExperienceList.astro';
+import Link from './Link.astro';
 
 interface Props {
   node: TwoColumn;
@@ -19,6 +20,9 @@ const components = {
   type: {
     list: List,
     experienceList: ExperienceList,
+  },
+  mark: {
+    link: Link,
   },
 };
 ---

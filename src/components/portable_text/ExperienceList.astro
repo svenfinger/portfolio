@@ -1,6 +1,5 @@
 ---
 import Button from '../Button.astro';
-import IconArrow from '../../assets/icons/arrow-up-right.svg';
 import type { ExperienceList } from '../../lib/sanityTypes';
 
 interface Props {
@@ -29,9 +28,13 @@ const link = node.link;
 {
   link && link.url && link.text && (
     <div>
-      <Button href={link.url} text={link.text} target="_blank" rel="noopener noreferrer">
-        <IconArrow slot="icon-right" />
-      </Button>
+      <Button
+        href={link.url}
+        text={link.text}
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="primary"
+      />
     </div>
   )
 }

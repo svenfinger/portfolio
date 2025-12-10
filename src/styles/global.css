@@ -22,12 +22,12 @@
     --foreground-primary: var(--color-gray-200);
     --foreground-secondary: var(--color-gray-400);
     --foreground-inverted: var(--color-gray-900);
-    --interactive-primary-default: var(--color-blue-500);
-    --interactive-primary-hover: var(--color-blue-600);
+    --interactive-primary-default: var(--color-blue-600);
+    --interactive-primary-hover: var(--color-blue-500);
     --interactive-secondary-default: var(--color-gray-300);
-    --interactive-secondary-hover: var(--color-gray-400);
-    --interactive-tertiary-default: var(--color-gray-800);
-    --interactive-tertiary-hover: var(--color-gray-950);
+    --interactive-secondary-hover: var(--color-gray-100);
+    --interactive-tertiary-default: var(--color-gray-700);
+    --interactive-tertiary-hover: var(--color-gray-800);
     --border-default: var(--color-gray-600);
     --border-subtle: var(--color-gray-700);
   }
