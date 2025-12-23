@@ -16,15 +16,24 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 
-const page = await sanityClient.fetch<Page>(
-  `*[_type == "page" && slug.current == $slug && isHome != true][0]{title, body}`,
+const page = await sanityClient.fetch<Page & { layout?: 'narrow' | 'default' }>(
+  `*[_type == "page" && slug.current == $slug && isHome != true][0]{title, body, layout}`,
   { slug }
 );
+
+const titleClass =
+  page.layout === 'narrow'
+    ? 'mt-32 mx-auto mb-12 headline-xl'
+    : 'mt-48 min-h-16 md:min-h-12 mb-6 text-4xl';
+
+const contentClass = page.layout === 'narrow' ? 'prose mx-auto mb-48' : 'prose';
 ---
 
-<Layout title=`${page.title}`>
-  <div class="mt-48 min-h-16 md:min-h-12 mb-6">
-    {page.title}
+<Layout title={page.title} maxWidth={page.layout}>
+  <div class={titleClass}>
+    <h1>{page.title}</h1>
   </div>
-  <BlockContent value={page.body} />
+  <div class={contentClass}>
+    <BlockContent value={page.body} />
+  </div>
 </Layout>
