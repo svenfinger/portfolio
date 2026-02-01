@@ -1,5 +1,26 @@
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'GT America';
+  src: url('/fonts/gt-america-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GT America';
+  src: url('/fonts/gt-america-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Enable alternative single-story "g" and other GT America features */
+html {
+  font-feature-settings: 'ss01' 1; /* Single-story g */
+}
+
 /* Define semantic tokens that respond to prefers-color-scheme */
 :root {
   --background: var(--color-gray-100);
@@ -35,30 +56,32 @@
 
 @theme {
   --font-sans:
-    aktiv-grotesk, Helvetica, Arial, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'GT America', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-display:
-    polymath-display, Helvetica, Arial, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'GT America', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --default-font-feature-settings: 'ss01' 1;
 
   --container-8xl: 90rem;
   --section-height: 50.625rem;
 
-  --tracking-tightest: -0.16em;
-  --tracking-tighter: -0.08em;
-  --tracking-tight: -0.04em;
-  --tracking-wide: 0.04em;
-  --tracking-wider: 0.08em;
-  --tracking-widest: 0.16em;
+  --tracking-tightest: -0.16rem;
+  --tracking-tighter: -0.08rem;
+  --tracking-tight: -0.04rem;
+  --tracking-wide: 0.04rem;
+  --tracking-wider: 0.08rem;
+  --tracking-widest: 0.16rem;
 
   /* Typography tokens */
   --font-size-headline-xl: var(--text-5xl);
   --line-height-headline-xl: var(--text-5xl--line-height);
-  --letter-spacing-headline-xl: var(--tracking-wide);
+  --letter-spacing-headline-xl: var(--tracking-tighter);
 
   --font-size-headline-lg: var(--text-3xl);
   --line-height-headline-lg: var(--text-3xl--line-height);
-  --letter-spacing-headline-lg: var(--tracking-wider);
+  --letter-spacing-headline-lg: var(--tracking-tight);
 
   --font-size-headline-sm: var(--text-lg);
   --line-height-headline-sm: var(--text-lg--line-height);
@@ -121,7 +144,7 @@
     font-size: var(--font-size-headline-xl);
     line-height: var(--line-height-headline-xl);
     letter-spacing: var(--letter-spacing-headline-xl);
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .headline-lg {
@@ -129,23 +152,23 @@
     font-size: var(--font-size-headline-lg);
     line-height: var(--line-height-headline-lg);
     letter-spacing: var(--letter-spacing-headline-lg);
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .headline-sm {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--font-size-headline-sm);
     line-height: var(--line-height-headline-sm);
     letter-spacing: var(--letter-spacing-headline-sm);
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .headline-xs {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--font-size-headline-xs);
     line-height: var(--line-height-headline-xs);
     letter-spacing: var(--letter-spacing-headline-xs);
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .body-lg {
@@ -236,7 +259,7 @@
       list-style-type: decimal;
     }
 
-    & a {
+    & a:not(.button) {
       color: var(--color-interactive-secondary-default);
       text-decoration: underline;
       text-underline-offset: 2px;

@@ -10,6 +10,7 @@ export interface Props {
 const { text, href, target, rel, variant = 'primary' } = Astro.props;
 
 const baseStyles = [
+  'button',
   'inline-flex items-center justify-center rounded-full text-sm',
   'transition-colors duration-200',
   'px-3 py-1 gap-2',

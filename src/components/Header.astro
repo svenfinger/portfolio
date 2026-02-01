@@ -27,12 +27,12 @@ const getNavClass = (isActive: boolean) =>
 ---
 
 <header
-  class="bg-background text-sm flex justify-between items-center sm:grid sm:grid-cols-3 py-5 gap-4 sm:gap-6 relative z-50"
+  class="bg-background body-sm flex justify-between items-center sm:grid sm:grid-cols-3 py-5 gap-4 sm:gap-6 relative z-50"
 >
   <!-- Logo -->
   <div class="flex items-start">
-    <a href="/" class="flex items-center gap-2 font-display text-lg font-semibold tracking-wide">
-      <Logo class="text-blue-600 size-6" />
+    <a href="/" class="flex items-center gap-2 body-lg">
+      <Logo class="text-interactive-primary-default size-6" />
       {title}
     </a>
   </div>
@@ -111,14 +111,14 @@ const getNavClass = (isActive: boolean) =>
     }
     <a
       href="/socials"
-      class="nav-item opacity-0 text-gray-500 dark:text-gray-400"
+      class="nav-item opacity-0 text-foreground-secondary"
       style={`--delay: ${0.3 + pages.length * 0.1}s`}
     >
       Socials
     </a>
     <a
       href="/contact"
-      class="nav-item opacity-0 text-gray-500 dark:text-gray-400"
+      class="nav-item opacity-0 text-foreground-secondary"
       style={`--delay: ${0.4 + pages.length * 0.1}s`}
     >
       Contact

@@ -12,7 +12,7 @@ const works = await resolveWorkRefs(node.works || []);
 ---
 
 <section class="min-h-section">
-  <div class="pb-6">
+  <div class="pb-12 headline-lg">
     {node.title}
   </div>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-12">
@@ -36,8 +36,8 @@ const works = await resolveWorkRefs(node.works || []);
                 width="684"
                 height="385"
               />
-              {work.title}
-              <div class="text-gray-500 dark:text-gray-400">{work.subline}</div>
+              <div class="headline-xs">{work.title}</div>
+              <div class="text-foreground-secondary">{work.subline}</div>
             </a>
           )
       )

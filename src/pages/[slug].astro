@@ -22,9 +22,7 @@ const page = await sanityClient.fetch<Page & { layout?: 'narrow' | 'default' }>(
 );
 
 const titleClass =
-  page.layout === 'narrow'
-    ? 'mt-32 mx-auto mb-12 headline-xl'
-    : 'mt-48 min-h-16 md:min-h-12 mb-6 text-4xl';
+  page.layout === 'narrow' ? 'mt-32 mx-auto mb-12 headline-xl' : 'mt-48 mb-12 headline-xl';
 
 const contentClass = page.layout === 'narrow' ? 'prose mx-auto mb-48' : 'prose';
 ---
